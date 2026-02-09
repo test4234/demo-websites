@@ -1,0 +1,3515 @@
+
+src\app\about\page.js :
+--------------------------------------------------
+﻿// src/app/about/page.js
+import siteConfig from "../../data/siteConfig";
+import { buildMeta } from "../../lib/seo";
+import LeadSection from "../../sections/LeadSection";
+
+export async function generateMetadata() {
+  const meta = buildMeta({
+    title: "About Hospital",
+    description: `About ${siteConfig.companyName} – Trusted 24/7 Healthcare in Machilipatnam`,
+    path: "/about",
+  });
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.canonical },
+  };
+}
+
+export default function About() {
+  return (
+    <div className="bg-secondary min-h-screen">
+      {/* ================= PAGE HEADER ================= */}
+      <section className="pt-10 pb-10 border-b border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <span className="block text-[11px] font-bold uppercase tracking-[0.35em] text-accent mb-6">
+            Hospital Overview
+          </span>
+
+          <h1 className="text-4xl md:text-6xl font-extrabold text-text-primary leading-tight mb-8">
+            Compassionate Healthcare <br />
+            Available 24/7
+          </h1>
+
+          <p className="max-w-3xl text-lg md:text-xl text-text-muted leading-relaxed">
+            {siteConfig.companyName} is a trusted general hospital located on Bala
+            Bhavan Road, Machilipatnam. We are committed to providing quality
+            medical care with safety, compassion, and reliability for patients
+            of all age groups.
+          </p>
+        </div>
+      </section>
+
+      {/* ================= MAIN CONTENT ================= */}
+      <section className="py-10">
+        <div className="max-w-7xl mx-auto px-6 space-y-24">
+          {/* ===== OUR COMMITMENT ===== */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-7 space-y-10">
+              <div>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4">
+                  Our Commitment
+                </h3>
+
+                <p className="text-2xl md:text-3xl font-semibold text-text-primary leading-snug">
+                  Dedicated to ethical medical practices and patient-centered
+                  care across{" "}
+                  <span className="text-accent">{siteConfig.defaultCity}</span>.
+                </p>
+              </div>
+
+              <div className="text-text-muted text-base leading-relaxed space-y-4">
+                <p>
+                  Murali Krishna Hospital has been serving the local community
+                  for several years and has built a reputation as a dependable
+                  healthcare provider.
+                </p>
+
+                <p>
+                  Our experienced doctors, skilled nursing staff, and trained
+                  healthcare professionals work together to ensure patient
+                  comfort, clear communication, and effective treatment
+                  outcomes.
+                </p>
+
+                <p>
+                  Emergency services are available 24/7 to support urgent medical
+                  needs at any time.
+                </p>
+              </div>
+            </div>
+
+            {/* ===== HIGHLIGHT BOX ===== */}
+            <div className="lg:col-span-5">
+              <div className="bg-primary text-on-primary p-12">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-on-primary/60 mb-4">
+                  Services Offered
+                </h3>
+
+                <p className="text-base md:text-lg leading-relaxed">
+                  We provide a wide range of medical services including general
+                  medicine, emergency care, inpatient & outpatient support,
+                  diagnostics, basic surgical procedures, and preventive
+                  healthcare services.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ===== FACILITIES & PATIENT CARE ===== */}
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-6">
+              Facilities & Patient Care
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <Facility
+                title="Clean & Comfortable Premises"
+                text="Our hospital maintains a hygienic and patient-friendly environment for better recovery and comfort."
+              />
+              <Facility
+                title="24/7 Medical Availability"
+                text="Doctors and emergency support are available round-the-clock for urgent care and assistance."
+              />
+              <Facility
+                title="Affordable Treatment Packages"
+                text="We offer transparent and customized healthcare plans designed to meet patient needs."
+              />
+              <Facility
+                title="Trusted Community Healthcare"
+                text="Serving Machilipatnam and nearby towns and villages with reliable medical support."
+              />
+            </div>
+          </div>
+
+          {/* ===== LOCATION ===== */}
+          <div className="border border-border p-10 max-w-3xl">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-accent mb-4">
+              Hospital Location
+            </h4>
+
+            <p className="text-text-muted text-sm leading-relaxed mb-4">
+              {siteConfig.address}
+            </p>
+
+            {siteConfig.mapLink && (
+              <a
+                href={siteConfig.mapLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[11px] font-bold uppercase tracking-widest hover:text-accent transition"
+              >
+                View on Google Maps →
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= APPOINTMENT FORM ================= */}
+      <LeadSection />
+    </div>
+  );
+}
+
+/* ================= FACILITY CARD ================= */
+function Facility({ title, text }) {
+  return (
+    <div className="border border-border p-8">
+      <h4 className="text-lg font-bold text-text-primary mb-3">{title}</h4>
+      <p className="text-sm text-text-muted leading-relaxed">{text}</p>
+    </div>
+  );
+}
+
+
+
+src\app\contact\page.js :
+--------------------------------------------------
+﻿// src/app/contact/page.js
+import siteConfig from "../../data/siteConfig";
+import { buildMeta } from "../../lib/seo";
+import LeadSection from "../../sections/LeadSection";
+import Link from "next/link";
+
+export async function generateMetadata() {
+  const meta = buildMeta({
+    title: "Contact Hospital",
+    description: `Contact ${siteConfig.companyName} for appointments, emergency care, and medical support in ${siteConfig.defaultCity}.`,
+    path: "/contact",
+  });
+
+  return {
+    title: meta.title,
+    description: meta.description,
+  };
+}
+
+export default function Contact() {
+  return (
+    <div className="bg-secondary min-h-screen">
+      {/* ================= HERO ================= */}
+      <header className="relative pt-10 pb-16 lg:pt-10 lg:pb-24 border-b border-border overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-12 h-[1px] bg-accent" />
+            <span className="text-accent text-[11px] font-black uppercase tracking-[0.4em]">
+              Contact & Support
+            </span>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-text-primary leading-[0.95] tracking-tighter max-w-5xl">
+            Patient <br />
+            <span className="text-text-muted/40 italic font-light">
+              Assistance.
+            </span>
+          </h1>
+
+          <p className="mt-10 text-lg md:text-xl text-text-muted max-w-2xl leading-relaxed font-medium">
+            Reach out to{" "}
+            <span className="text-text-primary font-semibold">
+              {siteConfig.companyName}
+            </span>{" "}
+            for appointments, emergency services, and trusted healthcare support
+            across {siteConfig.defaultCity} and nearby areas.
+          </p>
+        </div>
+
+        <div className="absolute top-0 right-0 w-1/4 h-full bg-primary/5 -skew-x-12 translate-x-20 z-0 hidden lg:block" />
+      </header>
+
+      {/* ================= MAIN CONTENT ================= */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          {/* LEFT COLUMN */}
+          <div className="lg:col-span-6 space-y-20">
+            {/* CONTACT DETAILS */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-6">
+                  Hospital Location
+                </h4>
+                <p className="text-text-primary text-base font-bold leading-relaxed max-w-[240px]">
+                  {siteConfig.address}
+                </p>
+              </div>
+
+              <div className="space-y-10">
+                <div>
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-4">
+                    Emergency Helpline (24/7)
+                  </h4>
+                  <Link
+                    href={`tel:${siteConfig.phone}`}
+                    className="text-text-primary font-black text-2xl tracking-tighter hover:text-accent transition"
+                  >
+                    {siteConfig.phone}
+                  </Link>
+                </div>
+
+                <div>
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-4">
+                    Official Email
+                  </h4>
+                  <Link
+                    href={`mailto:${siteConfig.email}`}
+                    className="text-text-primary font-bold text-lg border-b-2 border-border hover:border-accent hover:text-accent transition pb-1"
+                  >
+                    {siteConfig.email}
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* WHATSAPP / QUICK SUPPORT */}
+            <div className="relative p-10 bg-primary shadow-2xl overflow-hidden group">
+              <div className="relative z-10">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-on-primary/60 mb-6 flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  Quick Support
+                </h4>
+
+                <p className="text-on-primary text-lg font-medium mb-8 max-w-sm">
+                  Contact us for appointment requests, medical inquiries, and
+                  patient assistance.
+                </p>
+
+                {siteConfig.whatsapp && (
+                  <a
+                    href={`https://wa.me/${siteConfig.whatsapp.replace(
+                      /\D/g,
+                      ""
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      inline-flex items-center gap-4
+                      bg-secondary text-text-primary
+                      px-10 py-5
+                      text-[11px] font-black uppercase tracking-[0.25em]
+                      hover:bg-accent hover:text-on-accent
+                      transition-all duration-500
+                    "
+                  >
+                    Message Hospital Support
+                    <span className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                  </a>
+                )}
+              </div>
+
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <div className="w-24 h-24 border-t-4 border-r-4 border-on-primary" />
+              </div>
+            </div>
+
+            {/* MAP */}
+            <div className="space-y-8">
+              <div className="flex items-center justify-between">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted">
+                  Service Area
+                </h4>
+                <span className="text-[10px] font-bold text-accent uppercase tracking-widest">
+                  {siteConfig.defaultCity} & Nearby Areas
+                </span>
+              </div>
+
+              <div className="relative h-96 w-full border border-border shadow-inner bg-primary/5">
+                <iframe
+                  title="Hospital Location Map"
+                  src={siteConfig.mapEmbed || ""}
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                  allowFullScreen
+                />
+                <div className="absolute inset-0 pointer-events-none border-[12px] border-secondary/20" />
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN */}
+          <aside className="lg:col-span-6">
+            <div className="sticky top-32 space-y-16">
+              <div>
+                <h3 className="text-3xl lg:text-4xl font-extrabold text-text-primary">
+                  Book an Appointment
+                </h3>
+                <p className="text-text-muted text-base mt-4 max-w-md leading-relaxed font-medium">
+                  Fill in your details below and our hospital team will contact
+                  you shortly to confirm your appointment or assist with your
+                  healthcare needs.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* ================= LEAD SECTION ================= */}
+      <LeadSection />
+    </div>
+  );
+}
+
+
+
+src\app\disclaimer\page.js :
+--------------------------------------------------
+﻿// src/app/disclaimer/page.js
+import siteConfig from "../../data/siteConfig";
+
+/**
+ * DISCLAIMER
+ * Provides transparency regarding healthcare information,
+ * medical services, and website limitations.
+ */
+export const metadata = {
+  title: `Disclaimer | ${siteConfig.companyName}`,
+  description:
+    "Medical disclaimer outlining limitations related to healthcare information, services, and website content.",
+};
+
+export default function Disclaimer() {
+  return (
+    <div className="bg-secondary min-h-screen pb-24">
+      {/* ================= HEADER ================= */}
+      <header className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-border overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-12 h-[1px] bg-accent/40" />
+            <span className="text-accent text-[11px] font-black uppercase tracking-[0.4em]">
+              Important Notice
+            </span>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-extrabold text-text-primary leading-[0.95] tracking-tighter">
+            Medical <br />
+            <span className="text-text-muted/40 italic font-light">
+              Disclaimer.
+            </span>
+          </h1>
+        </div>
+
+        {/* Subtle document grid */}
+        <div className="absolute top-0 right-0 w-full h-full opacity-[0.02] pointer-events-none">
+          <svg width="100%" height="100%">
+            <defs>
+              <pattern
+                id="grid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 40 0 L 0 0 0 40"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+      </header>
+
+      {/* ================= CONTENT ================= */}
+      <section className="max-w-4xl mx-auto px-6 py-10 lg:py-10">
+        <div
+          className="
+            prose prose-lg max-w-none
+            prose-headings:text-text-primary
+            prose-headings:font-extrabold
+            prose-headings:tracking-tight
+            prose-h2:text-2xl
+            prose-h2:border-l-4
+            prose-h2:border-accent
+            prose-h2:pl-6
+            prose-h2:mb-8
+            prose-p:text-text-muted
+            prose-p:leading-relaxed
+            prose-p:mb-12
+          "
+        >
+          <h2>General Information</h2>
+          <p>
+            This website is provided for general informational purposes only.
+            While <strong>{siteConfig.companyName}</strong> makes every effort
+            to keep information accurate and up to date, no guarantees are made
+            regarding completeness or reliability.
+          </p>
+
+          <h2>Medical Information Disclaimer</h2>
+          <p>
+            The health and medical information on this website is intended for
+            awareness only. It should not be considered as professional medical
+            advice, diagnosis, or treatment. Patients are advised to consult
+            qualified doctors directly for proper evaluation.
+          </p>
+
+          <h2>Emergency Situations</h2>
+          <p>
+            In case of a medical emergency, please contact the hospital
+            immediately or visit the emergency department. Do not rely solely on
+            website content for urgent medical decisions.
+          </p>
+
+          <h2>Services & Limitations</h2>
+          <p>
+            {siteConfig.companyName} provides general healthcare services,
+            emergency care, inpatient and outpatient support, diagnostics, and
+            medical treatments. Treatment outcomes may vary depending on patient
+            condition, medical history, and clinical requirements.
+          </p>
+
+          <h2>No Guarantees or Commitments</h2>
+          <p>
+            Information on this website does not constitute a binding medical
+            guarantee or contractual commitment. Any healthcare service,
+            appointment, or treatment requires direct consultation and medical
+            evaluation by hospital professionals.
+          </p>
+
+          <h2>Images & Representations</h2>
+          <p>
+            Images used on this website may include representative visuals for
+            informational and design purposes. Actual facilities, services, and
+            treatments may differ based on patient needs and availability.
+          </p>
+
+          <h2>External Links & Third-Party Platforms</h2>
+          <p>
+            This website may include links to third-party platforms such as
+            Google Maps or other external services.{" "}
+            {siteConfig.companyName} does not control or assume responsibility
+            for the content, privacy policies, or availability of these
+            platforms.
+          </p>
+
+          <div className="mt-24 pt-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/60">
+              Document Ref:{" "}
+              {siteConfig.companyName.substring(0, 3).toUpperCase()}-MED-2026
+            </p>
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent">
+              Last Updated: January 2026
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\doctors\page.js :
+--------------------------------------------------
+// src/app/doctors/page.js
+
+import doctors from "../../data/doctors";
+import DoctorCard from "../../components/DoctorCard";
+
+export default function DoctorsPage() {
+  return (
+    <div className="bg-secondary min-h-screen">
+      <header className="pt-20 pb-16 border-b border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-5xl font-extrabold text-text-primary">
+            Our Doctors
+          </h1>
+          <p className="mt-6 text-text-muted max-w-2xl">
+            Meet the experienced medical professionals at Murali Krishna Hospital.
+          </p>
+        </div>
+      </header>
+
+      <section className="py-20 max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        {doctors.map((doctor) => (
+          <DoctorCard key={doctor.slug} doctor={doctor} />
+        ))}
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\doctors\[slug]\page.js :
+--------------------------------------------------
+// src/app/doctors/[slug]/page.js
+
+import doctors from "../../../data/doctors";
+import LeadForm from "../../../components/LeadForm";
+
+export async function generateStaticParams() {
+  return doctors.map((d) => ({ slug: d.slug }));
+}
+
+export default function DoctorProfile({ params }) {
+  const doctor = doctors.find((d) => d.slug === params.slug);
+
+  if (!doctor) {
+    return <div className="py-24 text-center">Doctor not found.</div>;
+  }
+
+  return (
+    <div className="bg-secondary pb-24">
+      <header className="pt-20 pb-10 border-b border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <h1 className="text-4xl font-bold text-text-primary">
+            {doctor.name}
+          </h1>
+          <p className="mt-2 text-accent font-semibold">
+            {doctor.specialty}
+          </p>
+        </div>
+      </header>
+
+      <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="lg:col-span-7">
+          <p className="text-text-muted leading-relaxed text-lg">
+            {doctor.bio}
+          </p>
+        </div>
+
+        <aside className="lg:col-span-5">
+          <div className="border border-border rounded-xl p-8">
+            <h3 className="text-xl font-bold mb-4">
+              Book Consultation
+            </h3>
+            <LeadForm />
+          </div>
+        </aside>
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\favicon.ico :
+--------------------------------------------------
+         (  F          (  n  00     (-  �         �  �F  (                                                           $   ]   �   �   ]   $                                       �   �   �   �   �   �   �   �                           8   �   �   �   �   �   �   �   �   �   �   8                  �   �   �   �   �   �   �   �   �   �   �   �              �   �   �   �   �   �   �   �   �   �   �   �   �   �       #   �   �   �OOO�������������������������ggg�   �   �   �   #   Y   �   �   ��������������������������555�   �   �   �   Y   �   �   �   �   �kkk���������������������   �   �   �   �   �   �   �   �   �   �			������������������   �   �   �   �   �   Y   �   �   �   �   �JJJ���������kkk�   �   �   �   �   �   Y   #   �   �   �   �   ����������			�   �   �   �   �   �   #       �   �   �   �   �   �111�DDD�   �   �   �   �   �   �              �   �   �   �   �   �   �   �   �   �   �   �                  8   �   �   �   �   �   �   �   �   �   �   8                           �   �   �   �   �   �   �   �                                       $   ]   �   �   ]   $                                                                                                                                                                                                                                                                                    (       @                                                                               ,   U   �   �   �   �   U   ,                                                                                      *   �   �   �   �   �   �   �   �   �   �   �   �   *                                                                      �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                          Q   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   Q                                               r   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   r                                       r   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   r                               O   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   O                          �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                      �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �               (   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   '           �   �   �   �   �   �   �888���������������������������������������������������������___�   �   �   �   �   �   �   �          �   �   �   �   �   �   ����������������������������������������������������������SSS�   �   �   �   �   �   �   �      +   �   �   �   �   �   �   �   �hhh�����������������������������������������������������   �   �   �   �   �   �   �   �   +   T   �   �   �   �   �   �   �   ��������������������������������������������������,,,�   �   �   �   �   �   �   �   �   T   �   �   �   �   �   �   �   �   �   �GGG���������������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ������������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �+++���������������������������������jjj�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ����������������������������������   �   �   �   �   �   �   �   �   �   �   �   T   �   �   �   �   �   �   �   �   �   �   ��������������������������III�   �   �   �   �   �   �   �   �   �   �   �   T   +   �   �   �   �   �   �   �   �   �   �   �   �hhh����������������������   �   �   �   �   �   �   �   �   �   �   �   +      �   �   �   �   �   �   �   �   �   �   �   ������������������,,,�   �   �   �   �   �   �   �   �   �   �   �   �          �   �   �   �   �   �   �   �   �   �   �   �   �GGG�������������   �   �   �   �   �   �   �   �   �   �   �   �   �           '   �   �   �   �   �   �   �   �   �   �   �   �   ����������   �   �   �   �   �   �   �   �   �   �   �   �   (               �   �   �   �   �   �   �   �   �   �   �   �   �333�___�   �   �   �   �   �   �   �   �   �   �   �   �   �                      �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                          O   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   O                               r   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   r                                       r   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   r                                               Q   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   Q                                                          �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                                      *   �   �   �   �   �   �   �   �   �   �   �   �   *                                                                                      ,   U   �   �   �   �   U   ,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               (   0   `           -                                                                                             	   (   L   j   �   �   �   �   j   K   (   	                                                                                                                                          V   �   �   �   �   �   �   �   �   �   �   �   �   �   �   U                                                                                                                      %   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   &                                                                                                      �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                                                          Q   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   R                                                                              �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                                     �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                             �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                     �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                              �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                       P   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   O                                  �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                              �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                       #   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   #                   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                  �   �   �   �   �   �   �   �   �   �$$$�hhh�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�eee�PPP��   �   �   �   �   �   �   �   �   �              U   �   �   �   �   �   �   �   �   �   ������������������������������������������������������������������������������������������sss�   �   �   �   �   �   �   �   �   �   �   U           �   �   �   �   �   �   �   �   �   �   �   �eee��������������������������������������������������������������������������������������   �   �   �   �   �   �   �   �   �   �   �       	   �   �   �   �   �   �   �   �   �   �   �   ����������������������������������������������������������������������������������HHH�   �   �   �   �   �   �   �   �   �   �   �   �   	   (   �   �   �   �   �   �   �   �   �   �   �   �   �EEE�����������������������������������������������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   (   K   �   �   �   �   �   �   �   �   �   �   �   �   �   �������������������������������������������������������������������������,,,�   �   �   �   �   �   �   �   �   �   �   �   �   �   L   j   �   �   �   �   �   �   �   �   �   �   �   �   �   �)))���������������������������������������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   j   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ������������������������������������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ����������������������������������������������������������iii�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �eee������������������������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ��������������������������������������������������HHH�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   j   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �EEE���������������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   j   L   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �����������������������������������������,,,�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   K   (   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �)))�������������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   (   	   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ����������������������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   	       �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ��������������������������iii�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �           U   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �eee����������������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   U              �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ������������������HHH�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                  �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �EEE�������������   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                   #   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   ���������,,,�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   #                       �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �222�}}}�   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                              �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                  O   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   P                                       �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                              �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                     �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                             �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                                     �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                                              R   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   Q                                                                                          �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �                                                                                                      &   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   �   %                                                                                                                      U   �   �   �   �   �   �   �   �   �   �   �   �   �   �   V                                                                                                                                          	   (   K   j   �   �   �   �   j   L   (   	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        �PNG
+
+   IHDR         \r�f   sRGB ���   8eXIfMM *    �i            �       �           D"8s  IDATx�]	�ՙn�]<QVA���h$	�N��13*�q��d�č�I���D�L2��(�(Ԙ2�ę�G	��q_@屈���xț�Џ��{o�������U�{}�O��;������9�d���(Dg��8	��N �]��@�hx�?v �N�3�=`;�6�.�&��u��  ��6�P��н��@�àR� P�iZq�^DN���wp����X�hИHg@��
+:��|�5` p"@�'�ɲ�s{�p�*�2����� d ү���|(0�
+0 ��>K�
+�xX�6 IJ� �C|?$KEN�}ϓ|������h $	2 ��|/� . Nz �#���W�e�
+�5������ܶ���;�y �� �g�s�h^  I�� DL(�;�8��Hjg�cH|x�1��R"�a���Ӂ� G��@��9`/`%0�H�@j�~,���K
+�,t).��I���D�T�O�)~��V�u$b 誛�U%�7������ _�$b 8A������J�3` 510wQ�?��vr���:�2�K�@ ��v*{%#��A�Z�咁^(��=�g \��W�����!:��,`�6��643�:@�c.Fٟ����u?�<��'������_܏vp: �8Q��
+I�Ł�p{3���kHȢ�G�����c�Ѽ<�62&�
+��2uC�����敭��T�3�
+�����;���d�/~m��.��X�@{�w.��d]G�� {lK��Eb���(P�RuM�T�C�����d��])��_Lm�=��=@b���K��GUk�^�U�������)1����g�T���m`9�\����Q��@����Ⱆ6�:ڞ�^�w�����E�D�� �	�5����F�,��
+�X"�d�m�<�nB~��@����t�t�x���;�f�>����I8����8��C1۪$B���e���+��jl��EZ��& ��S:�:�6�m����\G1��`���!�nl�l�Ɗ�^�Q`��@Oc�S��@e�ͷ���qb�p���S��@up���F�D@�Г������2@#����L3 �A��$H2� _h��FH#rq(��O�D�򤬈���runGOWa�b� &�SgD�3�ED�to�*Ǥ����9k��~)���,$� x�R�1�v�K ��9�D䍁U(�w�&LE��ꩻ�S)��3�Y8x8 $.i�(��K�ŀY����a�]����4��ǀ	c����@3�f����4� Ƣ���/*b��� ���$!I�~��7�B*-1`	o � �	�$��ǡD�����L������ �J"���OQ��)��2@#�x4�"$e ���I�8��Oi��8�"� �G��8[x�t<�.��7&�m&؎R�^��tq� ؕ�.���Y�-2� �d� ��*_��&d|j\�W�b ��G����*g�� ��釁�F4�"I�؃�/ b1q�N����Y�D��p���9���p�}w\� �Ԥ���1 j`��O���xK=��H�� �A��1�#�
+D:U8j���t���$b b�A||�U�Q��26%��)1 ��_�ꢳ!~D��� ��+b >A��:]�E$��50��GDhR�t����ݻwR�)��P� ��n$� 3���@bS�Nu�,Y�j�ʲ��:����;�����@�`�|�-[)�'OV��Ն�sFxڮ��ۥ�n}͛7�����~��ƺ�:���Q��J_��UKj8�q0x���;v4 ̞=[�hW=�	��	�&�!e5�8hѢE��w�]�����6���_�iW}�SZ�?	�/`�;vl�}��2 <�h�" ����A�܁�X,�m۶�+V�(��<�w���#F�^���;���aH�c ���)S�*�{a���p��c89(�^����4�&E��oÆ��W�/��u�=�^���*?{k^�_E�����z���g�� UI-���{WU*
+�:p�9.tڷo(/ݺus>��3�'�^�Rg���ڞG��I_D�������~~� ��{���?N0�7�S��.ƍ׸�~?}/y]nA;�أ���2 ]�FOB2C?�_I����[�:�:�=#�OzK�-� ��ϣ�%����?j��I���P�ۯ��{N�-hU��t�:������� ,���G�K�-hU���c�hP7 ����@�n?�\�-�k�.���2�:�� �`��F��=�-�V�_�G��܂V� ��}�0 WI����F��ʭ���sM�rZ�8pJ�Q�*@OK8���
+rZ��ݖa, ��w� �S�W^y����.��5�at7��ݏ���Tv#�~7n��A"�����+��W��pM��/�hK8����g��F/^������M{e ��R�|�)q��7�t��?8'���K��P~���瞰�\��r��>�ǷUk �eP��|�^x����
+�/V/��v���������*�p�v�� ����ʟ]J��}��k8(������ĉ�ѣGǗ�O�mڴq,X�o���e.�^ �Qx���p�t����4^_�N�{�����y�2 �s����� �-عsg�s���i�v��Z8
+!~PJ?�c�������|�] �ܽ{��z�긓R��1pn���z�����tlp�9�f�r�v�jT殿�z�4*O�L�~����ԕ3��4�~~�r�;�m�xY�+���������3 r�;�m�x�4���:7]ՁqL�4)U��!r�1��u�6���$��7����8�w��̙3Ǹ|5�>?�\z��O���͆� ��,�E����3�����2���[����2Wu:E�����^p.H1cJ�t�]}��B�u��SOu�����Ic�O�����%�  �AZ������k����D?�5 �@Q�����3�w�+��"��T��S��Uޥ�13��?��5 M'݋��>p��Z�j�~fj�׈�סԐ�n�����>� ��i5D�[bf ��~a�'�`Xc��� -�1�k����āI�������k��Q�ů|�k�M��(92�@�t�����݂X-�Lדa��N4��qܞ'$f0@�@V�nA�ܘY�L9:�|/^s� ��	��)0`�j��T\w�uZ-����¨\�	@�:��c�t���{�-��Rb��1%� �I,Y%T���~��r�1����C��,�$��*ˀ���f<��0z����h�F���� ����|���8Z-�CR����Tg� �HRf��glY����s��-��p��'+����m�_ؒg������C�{ �	����Ȫ�ϏΙ3g�-�GR|׹7`G��񥡘�0�U��_ٵZЏ�د�D�)���\>����ʗ������z N���@��~~��-��P��{rs���@�<����|.]�Ը|��m|g����_��y�W�KD1�b�M���%�s\����r�1��n�\�ƒ�"-� �`.4��~%3��I}[0A��$��= -�>BH"G�ۏ�^r��<�EBG�i �%���9�@^�~~@�����1����@� t�-[����{%@C�$�mAg���Κ5kʆх����/双O��l��ӿ��B�@.X���u�p�O��6��x�9MPn�`߷o_���^n�`t�
+��(�����\r��s�A�y���ۂ�T��@h
+�E0l�0��;�tڵӘkƸN����Y�jU��
+S#�|^㽺- |��p�N�.���ޥ`�^{�zL�6��4 �ě�b��e�]&"�d�sΜ9Uޥ�U0�!��*nP�*`���o֨v����i8G�����hh��m������ɓ�s�=�{J�U0�Ղ���wZ������������8bEz���,Y�D��![C�>}��7:k׮�no��f� >jvR?#b��X�(��F�AT�F��i��[�{��zv��>��C���a+�[0B2�D��=��G~�(
+�ĺ������LO�\s�܂>"8|�`[)
+&Lp8�'��������4 oGe�#�ۏ�lْ_\�D̀܂�2Z�l��i�9��t�ȑ9f ޢ�-����=���Y�y��n?uQ�}Xͬ�sA�i >=��1�=R��+� +�܂��.2 ��K������CƢۃ20h� �˫%53�5@�MA�%���̣������j[��9�;�� _(�����0��~r���\�{�m�P����x#TT9��n?����N#��ץ&�}� ��)
+�T�VL�!���j���`�p �8@Rr�UAV�A����=��-����pLH�`@n�*Ȋ1�܂U���?}w ]�H2@�ߴi��V���[�˯%�������5 �8�)Э
+T`��|rZbZ-�.�!da+@� ���ߞ�Z�gf�[0p���� �� I��gr�$��o%P�_rCy�V�|߽����"m�Y���-�[ l��k xA� ��ۯ9]�[pҤI�Ȩ�pP���k ��Feِ���gHE�d�nAm"Z�$��5}���z�8����2r�X�|� ��Sܻw��r�J�s�J�~�T�f�z{ �ͫ ��x�j?j��Q�E�n� �js���|G�xз�<dXt(��Q�E�.�p�47 ��)���;��ys�_�V�D���-XTi����?� �~�薜����� �`Q�=V�?���^�
+������.]�|X�
+�m�B~��?���J� �D�������~�h r�����ER���A݀�B���~w�q�Ӿ}���<�ŕ[й5�d��-�`�5 ?�Kq�~l4��0@��)����/I��(����؋���n��9���Y�4�!�Cو2ח*w9���GKݐ�s�&�r�e��s��?�6�8J� |(�uwO䴁d�&K)�nA��?R���n@7,��8�=���r�e����n�M�69k��M7�����J��R�]�e�n��9���Z���� /?នo>��󕾤�rzr�� ��`���V{���u��4448�V��ra��p� ��QRZ�<{�dK.F9��#~T���s.����N%*� ���Ýu�8G&����/W:*x%�{�}@� ��l���Nc#�AI�������i����*?�د�0}�g���C"Āpۯ������4薒ҏ(b�8�_Q�Y� ���r7'���`��� �j �6�� *��3�W�g��"��l��1�:�Sg}%� �	��P?����1`�����Y� ��"��D�0b@�� �����9������[t��F1���p`k�\U�`��R��A#W81 e`)R�ZM��� ��[u��F0�	rq.����� #^�=C"Ā9P'�R~f�� �
+pn�zdC"�e���?�\K����@&$b }jz�3۵� x/{��1 Ra�#�|��ƟUK�= &�^��TM�n�2�9�5)?s���{O'�D��D���o [kM�oK0�x�� �Td�_@]b r� �G�����; ����D��D���1�gaR�`��'`0�  �>\��/���f��������ŀ����!fn�Z�|b����U�.t���ट���r�9�+��������	�b rnE�Dk�= ��8�����!b R�Cl�P�E�`�܌�K�'~�@���}*�!`�@��6 L��;��	$b@D��?#��g�F�
+��V��1�v��;�Es��Q����=ɮ�4���b@T��n��!��3q�0^�V�� c ��1�ܶ��[����M�=8I����1@�څ@Cu��`N�o�� WJĀ� W����e��I�� n��N�mீ��ܴ�_d��(�4`E܅I� ���"̵�1 *3�+\�E� �\M���)g	r���
+���8�>��p�?vI� �0�ǀ~�!b������$'�%"I����R��i�1 �0��? S~&�� �r�����{ n�_�����L�?��T�e��Ǝ�7�C"r��OQ~"qI� ��O 8�?$b �܋r�#@�_�v�J̙��/��3�'d�/����W[����o'N��l��-2� ���@j�O~��0���2` H�@�؄��+����pOB� �uO��(l�S�ԕ���9����~�c�:x/�Xd�.���Ɣ�d ��V�y@F $H2� ����+M*�i��l8O@F $H2� ���2�4& r�PO��֢����7N�YS ����Y�1`��;�JS3n� g[�'��@W@"la`32�n?'�HB2p
+�hām�mu �����j@F@��V����Z!��xI���H�y�ѱ)��>��Z!6 ���a�`�����dDV$9f���	pM�6�I�!LG:\LdrwPy�~�P�%��L3��7�TK��Am�mo|�6��	3��-�h J3��?�67 �yr���"����g��4. $�1���_�[*��&���S/�dq�������C��h �3��>�6Ŷ%������\�#�RZq��=lK|ŔX��X�WS�e j5 /����$���:��v@������8���d��1(�z2~F�)���3��͋���l��C�������#����=�.\Lt? %� N$9b�%�:���2��u	 �1|-�	ld�����t $b��@?���@� �F�c��ρ^�D�d�[9�ࠐz�����:
+H�@ ��P2v )~���@����z5��|����R�ֵ���|`#�W39؂��<�"-�0��\<�d��u�oGLz 1��Gp����e�倯d� .�jH�@j�F�3��@ c{s<��J&	�@�����b���w��  �� ��n���v��< �����,M;��*p>p!0hH��{=�����x�]I�� DLh����<'��h8�@V �#��J���f� I�� �Hn����W�}�N�t[u�$�������� �@� 2 	�]&)�� #�3���,	=%�T���k�&�  I�����I��ӳ� �[8	�	�L�]�]t�T�g���6�-@b2 U�OV��: A?��} .i�|	�xC���rv�w; ��#�>�i 8_b82 �WP����� �� {'n���8�z;�Ƥy��s� ��@���P��o|�S�ih $3��@߹j��    IEND�B`�
+
+
+src\app\globals.css :
+--------------------------------------------------
+@import "tailwindcss";
+
+/* =====================================================
+   DESIGN TOKENS – GLOBAL COLOR SYSTEM
+===================================================== */
+
+@layer base {
+:root {
+  /* ---------------------------------
+     HOSPITAL BRAND COLORS
+  --------------------------------- */
+
+  /* Primary = Medical Trust Blue */
+  --color-primary: #2563eb;
+
+  /* Secondary = Clean White */
+  --color-secondary: #ffffff;
+
+  /* Accent = Healing Green */
+  --color-accent: #22c55e;
+
+  /* ---------------------------------
+     TEXT COLORS
+  --------------------------------- */
+
+  /* Deep Navy for readability */
+  --color-text-primary: #0f172a;
+
+  /* Soft muted gray */
+  --color-text-secondary: #475569;
+
+  /* Light helper text */
+  --color-text-subtle: #94a3b8;
+
+  /* White text on dark bg */
+  --color-text-highlighted: #ffffff;
+
+  /* ---------------------------------
+     SURFACES & BORDERS
+  --------------------------------- */
+
+  /* Soft border */
+  --color-border: #e2e8f0;
+
+  /* Light hospital surface background */
+  --color-surface: #f1f5f9;
+
+  /* ---------------------------------
+     SEMANTIC ROLES
+  --------------------------------- */
+
+  --bg-page: var(--color-secondary);
+  --bg-section: var(--color-surface);
+
+  --bg-primary: var(--color-primary);
+  --bg-accent: var(--color-accent);
+
+  --text-default: var(--color-text-primary);
+  --text-muted: var(--color-text-secondary);
+  --text-subtle: var(--color-text-subtle);
+
+  --text-highlighted: var(--color-text-highlighted);
+
+  --text-on-primary: var(--color-text-highlighted);
+  --text-on-accent: var(--color-text-highlighted);
+
+  --border-default: var(--color-border);
+
+  /* ---------------------------------
+     EFFECTS
+  --------------------------------- */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 20px 50px -12px rgba(0, 0, 0, 0.10);
+}
+
+
+  /* ---------------------------------
+     BASE STYLES
+  --------------------------------- */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-default);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--bg-accent);
+    color: var(--text-on-accent);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+    color: var(--text-default);
+  }
+
+  /* ---------------------------------
+     CONTEXTUAL TEXT COLOR SYSTEM
+     (IMPORTANT PART)
+  --------------------------------- */
+
+  /* Any section using bg-primary gets highlighted (white) text */
+  .bg-primary {
+    color: var(--text-highlighted);
+  }
+
+  .bg-primary h1,
+  .bg-primary h2,
+  .bg-primary h3,
+  .bg-primary h4,
+  .bg-primary p,
+  .bg-primary span,
+  .bg-primary li,
+  .bg-primary a {
+    color: var(--text-highlighted);
+  }
+
+  /* Optional: accent background text safety */
+  .bg-accent {
+    color: var(--text-on-accent);
+  }
+
+  /* ---------------------------------
+     SCROLLBAR
+  --------------------------------- */
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--bg-page);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: var(--border-default);
+    border-radius: 10px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-accent);
+  }
+}
+
+/* =====================================================
+   TAILWIND TOKEN BRIDGE
+===================================================== */
+@theme inline {
+  --color-background: var(--bg-page);
+  --color-foreground: var(--text-default);
+
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-section);
+  --color-accent: var(--bg-accent);
+
+  --color-text-primary: var(--text-default);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-highlighted: var(--text-highlighted);
+
+  --color-border: var(--border-default);
+
+  --shadow-premium: var(--shadow-medium);
+}
+
+/* =====================================================
+   UTILITIES
+===================================================== */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .text-shadow-subtle {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* ---------------------------------
+   SCROLL HELPERS
+--------------------------------- */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------------------------------
+   PROSE INHERITANCE
+--------------------------------- */
+@layer base {
+  .prose,
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose p {
+    font-family: inherit;
+  }
+}
+
+
+
+src\app\layout.js :
+--------------------------------------------------
+// src/app/layout.js
+import "./globals.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import WhatsAppButton from "../components/WhatsAppButton";
+import siteConfig from "../data/siteConfig";
+import { Poppins } from "next/font/google";
+
+export const metadata = {
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: siteConfig.seo.defaultTitle,
+  description: siteConfig.description,
+  openGraph: {
+    title: siteConfig.seo.ogTitle,
+    description: siteConfig.seo.ogDescription,
+    url: siteConfig.siteUrl,
+    siteName: siteConfig.companyName,
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: siteConfig.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.companyName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.seo.ogTitle,
+    description: siteConfig.seo.ogDescription,
+    images: [siteConfig.seo.ogImage],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
+// ✅ CORRECT place for viewport
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className="bg-secondary">
+      <body className={`${poppins.className} bg-secondary`}>
+        <Header />
+        <main className="relative min-h-screen bg-secondary">
+          {children}
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </body>
+    </html>
+  );
+}
+
+
+
+src\app\page.js :
+--------------------------------------------------
+// src/app/page.js
+import AuthoritySection from "../sections/AuthoritySection";
+import ServicesSection from "../sections/ServicesSection";
+import VideosSection from "../sections/VideosSection";
+import LeadSection from "../sections/LeadSection";
+import Hero from "../components/Hero";
+import siteConfig from "../data/siteConfig";
+
+/* -----------------------------------------
+   PAGE METADATA (WHATSAPP + GOOGLE SAFE)
+------------------------------------------ */
+export async function generateMetadata() {
+  return {
+    // 🔹 Google SEO
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.description,
+
+    // 🔹 WhatsApp / Social (IMPORTANT)
+    openGraph: {
+      title: siteConfig.seo.ogTitle,
+      description: siteConfig.seo.ogDescription,
+      url: siteConfig.siteUrl,
+      siteName: siteConfig.companyName,
+      type: "website",
+      images: [
+        {
+          url: siteConfig.seo.ogImage, // MUST be absolute URL
+          width: 1200,
+          height: 630,
+          alt: siteConfig.companyName,
+        },
+      ],
+    },
+
+    // 🔹 Canonical
+    alternates: {
+      canonical: siteConfig.siteUrl,
+    },
+  };
+}
+
+/* -----------------------------------------
+   HOME PAGE
+------------------------------------------ */
+export default function Home() {
+  return (
+    <>
+      {/* Hero */}
+      <Hero />
+
+      {/* Authority / Trust */}
+      <AuthoritySection />
+
+      {/* Services */}
+      <ServicesSection />
+
+
+      {/* Videos */}
+      {/* <VideosSection /> */}
+
+
+      {/* Lead / CTA */}
+      <LeadSection />
+
+      {/* Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: siteConfig.companyName,
+            url: siteConfig.siteUrl,
+          }),
+        }}
+      />
+    </>
+  );
+}
+
+
+
+src\app\privacy\page.js :
+--------------------------------------------------
+﻿// src/app/privacy/page.js
+import siteConfig from "../../data/siteConfig";
+import Link from "next/link";
+
+export const metadata = {
+  title: `Privacy Policy | ${siteConfig.companyName}`,
+  description: `Privacy policy explaining how ${siteConfig.companyName} handles patient enquiries, contact details, and website interactions.`,
+};
+
+export default function Privacy() {
+  return (
+    <div className="bg-secondary pb-24">
+      {/* ================= HEADER ================= */}
+      <header className="pt-10 pb-10 px-6 lg:px-12 border-b border-border">
+        <div className="max-w-7xl mx-auto">
+          <span className="text-accent text-[11px] font-bold uppercase tracking-[0.35em] block mb-4">
+            Privacy & Patient Trust
+          </span>
+
+          <h1 className="text-4xl text-text-primary font-bold">
+            Privacy Policy
+          </h1>
+        </div>
+      </header>
+
+      {/* ================= CONTENT ================= */}
+      <section className="max-w-4xl mx-auto px-6 py-10">
+        <div
+          className="
+            prose prose-sm md:prose-base max-w-none
+            prose-headings:text-text-primary
+            prose-p:text-text-muted
+            prose-p:leading-relaxed
+          "
+        >
+          <p>
+            {siteConfig.companyName} (“we”, “our”, or “us”) values your privacy
+            and is committed to protecting the information you share with us.
+            This Privacy Policy explains how limited personal information is
+            collected, used, and safeguarded when you interact with our hospital
+            website.
+          </p>
+
+          <h2>Scope of This Website</h2>
+          <p>
+            This website is designed to provide information about our healthcare
+            services, emergency support, outpatient consultations, and hospital
+            facilities in and around {siteConfig.defaultCity}. The website does
+            not require user registration or login accounts.
+          </p>
+
+          <h2>Information We Collect</h2>
+          <p>
+            We collect only the information that you voluntarily provide when
+            you:
+          </p>
+          <ul>
+            <li>Submit an appointment request or enquiry form</li>
+            <li>Call the hospital using the phone number displayed</li>
+            <li>Send us an email enquiry</li>
+            <li>Contact us through available support links</li>
+          </ul>
+
+          <p>
+            This information may include your name, phone number, email address,
+            and basic details related to your healthcare enquiry.
+          </p>
+
+          <h2>How Your Information Is Used</h2>
+          <p>
+            The information you share is used strictly for patient communication
+            purposes, including:
+          </p>
+          <ul>
+            <li>Responding to appointment requests</li>
+            <li>Providing support related to hospital services</li>
+            <li>Assisting with medical enquiries</li>
+            <li>Coordinating follow-up communication when needed</li>
+          </ul>
+
+          <p>
+            We do not use your information for automated marketing, profiling,
+            or unrelated promotional activities.
+          </p>
+
+          <h2>No User Accounts or Public Data Storage</h2>
+          <p>
+            This website does not create user accounts, store passwords, or
+            maintain patient dashboards. Submitted enquiry information is used
+            only for direct communication and is not made public.
+          </p>
+
+          <h2>Cookies & Tracking</h2>
+          <p>
+            This website does not use advertising trackers or behavioral
+            profiling cookies to collect personal data. Any basic technical data
+            generated during website access is handled by the hosting provider
+            as part of standard server operations.
+          </p>
+
+          <h2>Third-Party Services</h2>
+          <p>
+            The website may include links to third-party services such as Google
+            Maps, phone dialers, or email clients. Once you interact with these
+            services, their respective privacy policies apply. We do not control
+            how third-party platforms handle your data.
+          </p>
+
+          <h2>Medical Confidentiality</h2>
+          <p>
+            We encourage users not to submit sensitive medical details through
+            online forms. For detailed diagnosis or treatment discussions,
+            please consult our doctors directly at the hospital.
+          </p>
+
+          <h2>Information Sharing</h2>
+          <p>
+            We do not sell, rent, or share your personal information with third
+            parties. Information is disclosed only if required by law or when
+            necessary to provide legitimate healthcare support requested by you.
+          </p>
+
+          <h2>Data Security</h2>
+          <p>
+            Reasonable measures are taken to protect communication data from
+            unauthorized access. However, no online communication method can be
+            guaranteed to be completely secure, and users are encouraged to
+            share only necessary information.
+          </p>
+
+          <h2>Your Consent</h2>
+          <p>
+            By using this website or contacting us through any provided channel,
+            you consent to this Privacy Policy and the handling of your
+            information as described above.
+          </p>
+
+          <h2>Contact Details</h2>
+          <p>
+            If you have any questions regarding this Privacy Policy, you may
+            contact us at{" "}
+            <Link
+              href={`mailto:${siteConfig.email}`}
+              className="text-accent hover:underline"
+            >
+              {siteConfig.email}
+            </Link>
+            .
+          </p>
+
+          <div className="mt-16 pt-8 border-t border-border">
+            <p className="text-[10px] uppercase tracking-widest text-text-muted">
+              Last Updated: January 2026
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\products\page.js :
+--------------------------------------------------
+import products from "../../data/products";
+import ProductCard from "../../components/ProductCard";
+import siteConfig from "../../data/siteConfig";
+
+export const metadata = {
+  title: `Pharmacy Products | ${siteConfig.companyName}`,
+  description:
+    "Browse available medicines and healthcare products from Murali Krishna Hospital Pharmacy.",
+};
+
+export default function ProductsPage() {
+  return (
+    <div className="bg-secondary min-h-screen">
+      {/* Header */}
+      <header className="pt-20 pb-12 border-b border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-5xl font-extrabold text-text-primary">
+            Pharmacy Products
+          </h1>
+          <p className="mt-4 text-text-muted max-w-2xl">
+            Explore commonly available medicines and healthcare products at
+            Murali Krishna Hospital Pharmacy. For prescription medicines,
+            please consult our doctors.
+          </p>
+        </div>
+      </header>
+
+      {/* Product Grid */}
+      <section className="py-20 max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        {products.map((product) => (
+          <ProductCard key={product.slug} product={product} />
+        ))}
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\products\[slug]\page.js :
+--------------------------------------------------
+// src/app/products/[slug]/page.js
+
+import products from "../../../data/products";
+import siteConfig from "../../../data/siteConfig";
+
+/* -----------------------------------------
+   STATIC PARAMS
+------------------------------------------ */
+export async function generateStaticParams() {
+  return products.map((p) => ({ slug: p.slug }));
+}
+
+/* -----------------------------------------
+   PRODUCT PAGE
+------------------------------------------ */
+export default async function ProductPage({ params }) {
+  // ✅ Fix: unwrap params properly
+  const { slug } = await params;
+
+  const product = products.find((p) => p.slug === slug);
+
+  if (!product) {
+    return (
+      <div className="py-24 text-center text-text-muted">
+        Product not found.
+      </div>
+    );
+  }
+
+  // ✅ Product Schema for Google Shopping Results
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: product.name,
+    image: `${siteConfig.siteUrl}${product.image}`,
+    description: product.description,
+    brand: {
+      "@type": "Brand",
+      name: product.brand,
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: product.currency,
+      price: product.price,
+      availability: `https://schema.org/${product.availability}`,
+      url: `${siteConfig.siteUrl}/products/${product.slug}`,
+    },
+  };
+
+  return (
+    <div className="bg-secondary min-h-screen pb-24">
+      {/* ✅ Inject Product Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
+        }}
+      />
+
+      {/* HEADER */}
+      <header className="pt-20 pb-10 border-b border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <h1 className="text-4xl font-bold text-text-primary">
+            {product.name}
+          </h1>
+
+          <p className="mt-3 text-text-muted">{product.short}</p>
+        </div>
+      </header>
+
+      {/* CONTENT */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <p className="text-lg text-text-muted leading-relaxed max-w-3xl">
+          {product.description}
+        </p>
+
+        {/* PRICE */}
+        <p className="mt-6 text-2xl font-extrabold text-primary">
+          ₹{product.price}
+        </p>
+
+        {/* BUY NOW BUTTON */}
+        <a
+          href={`https://wa.me/${siteConfig.whatsapp.replace(
+            /\D/g,
+            ""
+          )}?text=I%20want%20to%20buy%20${product.name}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            inline-block mt-8 px-10 py-4
+            bg-primary text-on-primary
+            font-bold uppercase tracking-widest
+            hover:bg-accent transition
+          "
+        >
+          Buy Now on WhatsApp
+        </a>
+
+        {/* DISCLAIMER */}
+        <p className="mt-8 text-xs text-text-muted">
+          * Prices may vary. Prescription may be required for certain medicines.
+          Please consult our hospital staff before purchase.
+        </p>
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\robots.js :
+--------------------------------------------------
+import siteConfig from "../data/siteConfig";
+
+export default function robots() {
+  const base =
+    typeof siteConfig.siteUrl === "string"
+      ? siteConfig.siteUrl.replace(/\/$/, "")
+      : "";
+
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: base ? `${base}/sitemap.xml` : undefined,
+  };
+}
+
+
+
+src\app\services\page.js :
+--------------------------------------------------
+﻿// src/app/services/page.js
+import services from "../../data/services";
+import { buildMeta } from "../../lib/seo";
+import ServiceCard from "../../components/ServiceCard";
+import siteConfig from "../../data/siteConfig";
+import Link from "next/link";
+
+/**
+ * HOSPITAL SERVICES DIRECTORY
+ * Clean medical services listing for Murali Krishna Hospital.
+ */
+export async function generateMetadata() {
+  const meta = buildMeta({
+    title: "Hospital Services",
+    description: `Medical services including emergency care, general medicine, diagnostics, and inpatient support at ${siteConfig.companyName} in ${siteConfig.defaultCity}.`,
+    path: "/services",
+  });
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.canonical },
+  };
+}
+
+export default function ServicesPage() {
+  return (
+    <div className="bg-secondary min-h-screen">
+      {/* =====================================================
+           1. PAGE HEADER — Hospital Services
+      ===================================================== */}
+      <header className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 border-b border-border overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-12 h-[1px] bg-accent" />
+            <span className="text-accent text-[11px] font-black uppercase tracking-[0.35em]">
+              Our Healthcare Services
+            </span>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-text-primary leading-[0.95] tracking-tighter max-w-4xl">
+            Medical Services
+          </h1>
+
+          <div className="mt-12 max-w-2xl">
+            <p className="text-lg md:text-xl text-text-muted leading-relaxed font-light">
+              {siteConfig.companyName} provides reliable healthcare services
+              including general medicine, emergency care, diagnostic support,
+              inpatient and outpatient services, and preventive healthcare for
+              patients in {siteConfig.defaultCity} and nearby communities.
+            </p>
+          </div>
+        </div>
+
+        {/* Subtle background grid */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, #000 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+        </div>
+      </header>
+
+      {/* =====================================================
+           2. SERVICES GRID
+      ===================================================== */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 lg:gap-y-28">
+          {services.map((service, index) => (
+            <ServiceCard key={service.slug} service={service} index={index} />
+          ))}
+        </div>
+      </section>
+
+      {/* =====================================================
+           3. CTA BAR — Appointment Support
+      ===================================================== */}
+      <section className="bg-primary relative overflow-hidden group">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-24 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl text-center lg:text-left">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-primary leading-tight tracking-tight">
+                Need medical assistance or want to book an appointment?
+              </h2>
+            </div>
+
+            <Link
+              href="/contact"
+              className="
+                relative inline-flex items-center justify-center
+                px-12 py-6
+                bg-accent text-on-accent
+                text-[11px] font-black uppercase tracking-[0.3em]
+                hover:bg-on-accent hover:text-accent
+                transition-all duration-500 shadow-2xl
+                group-hover:scale-105
+              "
+            >
+              Contact Hospital Support
+            </Link>
+          </div>
+        </div>
+
+        {/* Dynamic angled background */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-on-primary/5 -skew-x-12 translate-x-32 transition-transform duration-1000 group-hover:translate-x-24" />
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\services\[slug]\page.js :
+--------------------------------------------------
+// src/app/services/[slug]/page.js
+import services from "../../../data/services";
+import { buildMeta } from "../../../lib/seo";
+import LeadForm from "../../../components/LeadForm";
+
+/* -----------------------------------------
+   STATIC PARAMS
+------------------------------------------ */
+export async function generateStaticParams() {
+  return services.map((s) => ({ slug: s.slug }));
+}
+
+/* -----------------------------------------
+   METADATA
+------------------------------------------ */
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+  if (!service) return {};
+
+  const meta = buildMeta({
+    title: service.seo?.title || service.title,
+    description: service.seo?.description || service.short,
+    keywords: service.seo?.keywords || [],
+    path: `/services/${service.slug}`,
+  });
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.canonical },
+  };
+}
+
+/* -----------------------------------------
+   PAGE
+------------------------------------------ */
+export default async function ServicePage({ params }) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+
+  if (!service) {
+    return (
+      <div className="py-24 text-center text-text-muted">
+        Service details not found.
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-secondary pb-24">
+      {/* ================= HEADER ================= */}
+      <header className="border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10">
+          <span className="block text-[11px] font-bold uppercase tracking-widest text-accent mb-4">
+            Hospital Services
+          </span>
+
+          <h1 className="text-4xl md:text-6xl font-bold text-text-primary max-w-4xl">
+            {service.title}
+          </h1>
+
+          {service.short && (
+            <p className="mt-6 max-w-2xl text-lg text-text-muted leading-relaxed">
+              {service.short}
+            </p>
+          )}
+        </div>
+      </header>
+
+      {/* ================= CONTENT ================= */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* MAIN CONTENT */}
+          <div className="lg:col-span-7">
+            <div
+              className="
+                prose prose-lg max-w-none
+                prose-headings:text-text-primary
+                prose-p:text-text-muted
+                prose-p:leading-relaxed
+                prose-strong:text-text-primary
+              "
+            >
+              {service.content}
+            </div>
+          </div>
+
+          {/* SIDEBAR */}
+          <aside className="lg:col-span-5">
+            <div className="sticky top-32">
+              <div className="border border-border rounded-xl bg-secondary p-8">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">
+                  Request an Appointment
+                </h3>
+
+                <p className="text-xs text-text-muted uppercase tracking-widest mb-8">
+                  Enquire about {service.title}
+                </p>
+
+                <LeadForm />
+
+                <div className="mt-8 pt-8 border-t border-border text-center">
+                  <p className="text-[10px] text-text-muted uppercase tracking-widest">
+                    Our hospital team will contact you shortly
+                  </p>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\sitemap.js :
+--------------------------------------------------
+// src/app/sitemap.js
+
+import siteConfig from "../data/siteConfig";
+import services from "../data/services";
+import projects from "../data/projects";
+import blogs from "../data/blogs";
+
+/**
+ * Next.js App Router sitemap
+ * Automatically served as /sitemap.xml
+ */
+export default async function sitemap() {
+  const base =
+    typeof siteConfig.siteUrl === "string"
+      ? siteConfig.siteUrl.replace(/\/$/, "")
+      : "";
+
+  if (!base) return [];
+
+  const pages = ["", "about", "services", "projects", "blog", "contact"];
+
+  const seen = new Set();
+  const urls = [];
+
+  // Static pages
+  pages.forEach((p) => {
+    const url = `${base}/${p}`;
+    if (!seen.has(url)) {
+      seen.add(url);
+      urls.push({
+        url,
+        lastModified: siteConfig.siteLastUpdated
+          ? new Date(siteConfig.siteLastUpdated).toISOString()
+          : undefined,
+      });
+    }
+  });
+
+  // Services
+  services.forEach((s) => {
+    if (!s?.slug) return;
+    const url = `${base}/services/${s.slug}`;
+    if (!seen.has(url)) {
+      seen.add(url);
+      urls.push({
+        url,
+        lastModified: s.lastModified || s.updatedAt
+          ? new Date(s.lastModified || s.updatedAt).toISOString()
+          : undefined,
+      });
+    }
+  });
+
+  // Projects
+  projects.forEach((p) => {
+    if (!p?.slug) return;
+    const url = `${base}/projects/${p.slug}`;
+    if (!seen.has(url)) {
+      seen.add(url);
+      urls.push({
+        url,
+        lastModified: p.lastModified || p.updatedAt
+          ? new Date(p.lastModified || p.updatedAt).toISOString()
+          : undefined,
+      });
+    }
+  });
+
+  // Blogs
+  blogs.forEach((b) => {
+    if (!b?.slug) return;
+    const url = `${base}/blog/${b.slug}`;
+    if (!seen.has(url)) {
+      seen.add(url);
+      urls.push({
+        url: url,
+        lastModified: b.lastModified || b.updatedAt || b.date
+          ? new Date(b.lastModified || b.updatedAt || b.date).toISOString()
+          : undefined,
+      });
+    }
+  });
+
+  return urls;
+}
+
+
+
+src\app\template.js :
+--------------------------------------------------
+
+// src/app/template.js
+"use client";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+
+export default function Template({ children }) {
+  const pathname = usePathname();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+  return children;
+}
+
+
+src\app\terms\page.js :
+--------------------------------------------------
+﻿// src/app/terms/page.js
+import siteConfig from "../../data/siteConfig";
+import Link from "next/link";
+
+export const metadata = {
+  title: `Terms & Conditions | ${siteConfig.companyName}`,
+  description: `Terms and conditions governing the use of the ${siteConfig.companyName} website and engagement of hospital and healthcare services.`,
+};
+
+export default function Terms() {
+  const sections = [
+    { id: "website-use", title: "Website Use" },
+    { id: "appointments", title: "Appointments & Enquiries" },
+    { id: "scope", title: "Scope of Healthcare Services" },
+    { id: "emergency", title: "Emergency Situations" },
+    { id: "liability", title: "Limitations of Liability" },
+    { id: "content", title: "Website Content & Images" },
+    { id: "governing-law", title: "Governing Law" },
+  ];
+
+  return (
+    <div className="bg-secondary pb-24">
+      {/* ================= HEADER ================= */}
+      <header className="pt-10 pb-16 px-6 lg:px-12 border-b border-border">
+        <div className="max-w-7xl mx-auto">
+          <span className="text-accent text-[10px] font-bold uppercase tracking-[0.4em] block mb-4">
+            Legal Information
+          </span>
+
+          <h1 className="text-4xl font-bold text-text-primary">
+            Terms & Conditions
+          </h1>
+        </div>
+      </header>
+
+      <section className="max-w-7xl mx-auto px-6 py-10 lg:grid lg:grid-cols-12 gap-10">
+        {/* ================= SIDEBAR ================= */}
+        <aside className="hidden lg:block lg:col-span-3">
+          <div className="sticky top-32 space-y-4">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-6">
+              Contents
+            </p>
+
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="
+                  block text-xs uppercase tracking-tight
+                  text-text-muted
+                  hover:text-accent
+                  transition
+                  border-l border-border
+                  pl-4 py-1
+                "
+              >
+                {s.title}
+              </a>
+            ))}
+          </div>
+        </aside>
+
+        {/* ================= MAIN CONTENT ================= */}
+        <div className="lg:col-span-9 max-w-3xl">
+          <div className="prose max-w-none prose-p:text-text-muted prose-headings:text-text-primary">
+            <p className="italic text-text-muted mb-12">
+              Last Updated: January 2026. By accessing this website or contacting
+              {` ${siteConfig.companyName}`}, you agree to the following terms
+              and conditions.
+            </p>
+
+            <section id="website-use" className="scroll-mt-32">
+              <h2>1. Website Use</h2>
+              <p>
+                This website is provided for general informational purposes only.
+                It contains details about hospital services, healthcare support,
+                and contact information. Accessing this website does not create
+                a doctor-patient relationship or contractual obligation.
+              </p>
+            </section>
+
+            <section id="appointments" className="scroll-mt-32">
+              <h2>2. Appointments & Enquiries</h2>
+              <p>
+                Appointment requests or enquiries submitted through this website
+                are subject to confirmation by {siteConfig.companyName}. Medical
+                services are provided only after direct consultation with
+                qualified healthcare professionals.
+              </p>
+            </section>
+
+            <section id="scope" className="scroll-mt-32">
+              <h2>3. Scope of Healthcare Services</h2>
+              <p>
+                Services may include general medicine, emergency care, inpatient
+                and outpatient services, diagnostics, preventive healthcare, and
+                other treatments offered by the hospital. Availability of
+                services may vary depending on patient needs and clinical
+                requirements.
+              </p>
+            </section>
+
+            <section id="emergency" className="scroll-mt-32">
+              <h2>4. Emergency Situations</h2>
+              <p>
+                In case of a medical emergency, patients should contact the
+                hospital immediately or visit the emergency department. Website
+                information should not be relied upon for urgent medical
+                decision-making.
+              </p>
+            </section>
+
+            <section id="liability" className="scroll-mt-32">
+              <h2>5. Limitations of Liability</h2>
+              <p>
+                While {siteConfig.companyName} strives to provide accurate and
+                timely healthcare services, treatment outcomes may vary based on
+                individual medical conditions. The hospital shall not be liable
+                for delays or complications arising from factors beyond
+                reasonable medical control.
+              </p>
+            </section>
+
+            <section id="content" className="scroll-mt-32">
+              <h2>6. Website Content & Images</h2>
+              <p>
+                Information on this website may change without notice. Images
+                may include representative visuals for presentation purposes and
+                may not always depict exact facilities or treatments unless
+                explicitly stated.
+              </p>
+            </section>
+
+            <section id="governing-law" className="scroll-mt-32">
+              <h2>7. Governing Law</h2>
+              <p>
+                These terms shall be governed by and interpreted in accordance
+                with the laws of India. Any disputes shall be subject to the
+                jurisdiction of courts located in {siteConfig.defaultCity}.
+              </p>
+            </section>
+          </div>
+
+          {/* ================= FOOT NOTE ================= */}
+          <div className="mt-20 p-8 border border-border bg-secondary">
+            <p className="text-xs text-text-muted leading-relaxed">
+              <strong>Need clarification?</strong> For questions regarding these
+              terms, please contact us at{" "}
+              <Link
+                href={`mailto:${siteConfig.email}`}
+                className="text-accent font-medium"
+              >
+                {siteConfig.email}
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+
+src\app\videos\page.js :
+--------------------------------------------------
+﻿// src/app/videos/page.js
+import videos from "../../data/videos";
+import { buildMeta } from "../../lib/seo";
+import VideoEmbed from "../../components/VideoEmbed";
+import siteConfig from "../../data/siteConfig";
+import Link from "next/link";
+
+export async function generateMetadata() {
+  const meta = buildMeta({
+    title: `Health Videos & Hospital Updates | ${siteConfig.companyName}`,
+    description: `Watch health awareness videos, doctor guidance, and service updates from ${siteConfig.companyName} in ${siteConfig.defaultCity}.`,
+    path: "/videos",
+  });
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.canonical },
+  };
+}
+
+export default function Videos() {
+  const featuredVideo = videos[0];
+  const galleryVideos = videos.slice(1);
+
+  return (
+    <div className="bg-secondary min-h-screen">
+      {/* =====================================================
+          PAGE HEADER
+      ===================================================== */}
+      <section className="pt-20 pb-16 border-b border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <span className="block text-[11px] font-bold uppercase tracking-[0.35em] text-accent mb-6">
+            Health Media
+          </span>
+
+          <h1 className="text-4xl md:text-6xl font-extrabold text-text-primary leading-tight mb-8">
+            Hospital Videos & <br />
+            Medical Awareness
+          </h1>
+
+          <p className="max-w-3xl text-lg text-text-muted leading-relaxed">
+            Explore health awareness videos, doctor guidance, and hospital
+            service updates from {siteConfig.companyName}. These videos help
+            patients and families understand our care approach and available
+            medical services.
+          </p>
+        </div>
+      </section>
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* FEATURED VIDEO */}
+          {featuredVideo && (
+            <div className="mb-24">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-text-muted mb-6">
+                Featured Video
+              </h3>
+
+              <div className="aspect-video w-full bg-primary overflow-hidden shadow">
+                <VideoEmbed id={featuredVideo.id} title={featuredVideo.title} />
+              </div>
+
+              <h2 className="mt-6 text-2xl font-semibold text-text-primary">
+                {featuredVideo.title}
+              </h2>
+
+              <p className="text-sm text-text-muted mt-1">
+                {featuredVideo.category || "Healthcare Update"}
+              </p>
+            </div>
+          )}
+
+          {/* VIDEO GRID */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+            {galleryVideos.map((video) => (
+              <div key={video.id}>
+                <div className="aspect-video w-full bg-primary overflow-hidden shadow">
+                  <VideoEmbed id={video.id} title={video.title} />
+                </div>
+
+                <h4 className="mt-4 text-lg font-medium text-text-primary">
+                  {video.title}
+                </h4>
+
+                <p className="text-[11px] text-text-muted uppercase tracking-widest mt-1">
+                  Health Awareness
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          CTA
+      ===================================================== */}
+      <section className="border-t border-border py-20">
+        <div className="max-w-3xl mx-auto text-center px-6">
+          <h2 className="text-3xl font-semibold text-text-primary mb-6">
+            Need medical support or want to book an appointment?
+          </h2>
+
+          <p className="text-text-muted mb-10">
+            Contact {siteConfig.companyName} for trusted healthcare services,
+            emergency support, and patient assistance.
+          </p>
+
+          <Link
+            href="/contact"
+            className="
+              inline-block
+              bg-primary text-on-primary
+              px-10 py-4
+              text-[11px] font-bold uppercase tracking-[0.25em]
+              hover:bg-accent hover:text-on-accent
+              transition
+            "
+          >
+            Contact Hospital
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+
+src\components\DoctorCard.js :
+--------------------------------------------------
+// src/components/DoctorCard.js
+
+import Image from "next/image";
+import Link from "next/link";
+
+export default function DoctorCard({ doctor }) {
+  return (
+    <article className="border border-border rounded-xl p-6 bg-secondary hover:shadow-lg transition">
+      <div className="flex items-center gap-5">
+        <div className="relative w-20 h-20 rounded-full overflow-hidden">
+          <Image
+            src={doctor.image}
+            alt={doctor.name}
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold text-text-primary">
+            {doctor.name}
+          </h3>
+          <p className="text-sm text-accent font-semibold">
+            {doctor.specialty}
+          </p>
+        </div>
+      </div>
+
+      <p className="mt-4 text-sm text-text-muted">
+        {doctor.short}
+      </p>
+
+      <Link
+        href={`/doctors/${doctor.slug}`}
+        className="inline-block mt-5 text-xs font-bold uppercase tracking-widest text-accent"
+      >
+        View Profile →
+      </Link>
+    </article>
+  );
+}
+
+
+
+src\components\Footer.js :
+--------------------------------------------------
+﻿import Image from "next/image";
+import Link from "next/link";
+import siteConfig from "../data/siteConfig";
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-primary text-on-primary pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* ================= MAIN GRID ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+          {/* BRAND */}
+          <div className="space-y-5 lg:col-span-2">
+            <Image
+              src={siteConfig.logo}
+              alt={siteConfig.companyName}
+              width={200}
+              height={50}
+              className="brightness-0 invert opacity-90"
+            />
+
+            <p className="text-on-primary/75 text-sm leading-relaxed">
+              {siteConfig.companyName} is a trusted 24/7 healthcare facility
+              located in {siteConfig.defaultCity}. We are committed to providing
+              quality medical care with compassion, safety, and reliability for
+              patients of all age groups.
+            </p>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-accent mb-5">
+              Contact
+            </h4>
+
+            <address className="not-italic text-sm text-on-primary/75 space-y-4">
+              <p>
+                <a
+                  href={siteConfig.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition underline underline-offset-2"
+                >
+                  {siteConfig.address}
+                </a>
+              </p>
+
+              <p>
+                <span className="block text-[10px] uppercase tracking-widest text-on-primary/50 mb-1">
+                  Emergency Helpline
+                </span>
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="hover:text-accent transition"
+                >
+                  {siteConfig.phone}
+                </a>
+              </p>
+
+              <p>
+                <span className="block text-[10px] uppercase tracking-widest text-on-primary/50 mb-1">
+                  Working Hours
+                </span>
+                Open 24 Hours (All Days)
+              </p>
+            </address>
+          </div>
+
+          {/* QUICK LINKS */}
+          <div>
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-accent mb-5">
+              Quick Links
+            </h4>
+
+            <ul className="text-sm text-on-primary/75 space-y-3 mb-6">
+              {[
+                { label: "About Hospital", href: "/about" },
+                { label: "Services", href: "/services" },
+                { label: "Doctors", href: "/doctors" },
+                { label: "Products", href: "/products" },
+                { label: "Contact", href: "/contact" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="hover:text-on-primary transition"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* SOCIAL */}
+            <a
+              href={siteConfig.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center gap-2
+                text-sm text-on-primary/75
+                hover:text-accent transition
+              "
+            >
+              {/* Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-4 h-4"
+                aria-hidden="true"
+              >
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+              </svg>
+              Health Updates
+            </a>
+          </div>
+
+          {/* LEGAL */}
+          <div>
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-accent mb-5">
+              Legal
+            </h4>
+
+            <ul className="text-sm text-on-primary/75 space-y-3">
+              <li>
+                <Link href="/privacy" className="hover:text-on-primary transition">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-on-primary transition">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/disclaimer"
+                  className="hover:text-on-primary transition"
+                >
+                  Disclaimer
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* ================= DISCLAIMER ================= */}
+        <div className="border-t border-on-primary/10 pt-8 mb-8">
+          <p className="text-[11px] text-on-primary/60 leading-relaxed max-w-4xl">
+            <strong>Disclaimer:</strong> The medical information provided on this
+            website is for general awareness only. For accurate diagnosis and
+            treatment, please consult our doctors directly or visit Murali
+            Krishna Hospital. Emergency services are available 24/7.
+          </p>
+        </div>
+
+        {/* ================= BOTTOM BAR ================= */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[10px] text-on-primary/50 uppercase tracking-widest text-center md:text-left">
+            © {currentYear} {siteConfig.companyName}. All rights reserved.
+          </p>
+
+          <p className="text-[10px] text-on-primary/50 uppercase tracking-widest text-center">
+            Website developed by{" "}
+            <a
+              href="https://your-website-link.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition font-semibold"
+            >
+              Srinivas
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+
+
+src\components\Header.js :
+--------------------------------------------------
+﻿"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import siteConfig from "../data/siteConfig";
+
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // ✅ Correct Navigation Order (Home First)
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Products", href: "/products" },
+    { label: "Doctors", href: "/doctors" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  // Lock body scroll ONLY when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  return (
+    <header className="sticky top-0 z-50 w-full bg-secondary border-b border-border transition-colors duration-300">
+      {/* HEADER BAR */}
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20 md:h-24">
+        
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-4">
+          <Image
+            src={siteConfig.logo}
+            alt={siteConfig.companyName}
+            width={140}
+            height={28}
+            priority
+          />
+        </Link>
+
+        {/* DESKTOP NAV */}
+        <nav
+          className="hidden md:flex items-center gap-8 lg:gap-12"
+          aria-label="Site Navigation"
+        >
+          {/* Main Links */}
+          <div className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="
+                  relative py-2 text-[13px] font-bold uppercase tracking-wider
+                  text-primary/80 hover:text-primary
+                  transition-colors duration-200
+                  after:content-[''] after:absolute after:bottom-0 after:left-0 
+                  after:w-0 after:h-[2px] after:bg-accent 
+                  hover:after:w-full after:transition-all after:duration-300
+                "
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <Link
+            href="/contact"
+            className="
+              px-8 py-3.5
+              bg-primary
+              text-on-primary
+              text-[12px] font-extrabold uppercase tracking-widest
+              hover:bg-accent hover:text-on-accent
+              transition-all duration-300 ease-in-out
+              shadow-sm hover:shadow-md
+            "
+          >
+            Get in Touch
+          </Link>
+        </nav>
+
+        {/* MOBILE MENU BUTTON */}
+        <button
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          type="button"
+        >
+          <span
+            className={`h-[2px] w-6 bg-primary transition-all duration-300 ${
+              menuOpen ? "rotate-45 translate-y-[8px]" : ""
+            }`}
+          />
+          <span
+            className={`h-[2px] w-6 bg-primary transition-all duration-300 ${
+              menuOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`h-[2px] w-6 bg-primary transition-all duration-300 ${
+              menuOpen ? "-rotate-45 -translate-y-[8px]" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* MOBILE MENU PANEL */}
+      <div
+        id="mobile-menu"
+        className={`
+          md:hidden absolute top-full left-0 w-full h-screen
+          bg-secondary border-t border-border
+          transition-all duration-300 ease-in-out
+          ${
+            menuOpen
+              ? "translate-y-0 opacity-100 visible"
+              : "-translate-y-2 opacity-0 invisible"
+          }
+        `}
+      >
+        <nav className="px-8 pt-10 pb-24 flex flex-col gap-6">
+          {navItems.map((item, index) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className={`
+                text-2xl font-bold uppercase tracking-tight text-primary
+                transition-transform duration-300
+                ${menuOpen ? "translate-x-0" : "-translate-x-4"}
+              `}
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          {/* Mobile CTA */}
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="
+              mt-8 px-8 py-5 text-center
+              bg-primary text-on-primary
+              text-sm font-extrabold uppercase tracking-[0.2em]
+              hover:bg-accent hover:text-on-accent
+              transition-all duration-300
+            "
+          >
+            Get in Touch
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+
+
+src\components\Hero.js :
+--------------------------------------------------
+﻿import Link from "next/link";
+import Image from "next/image";
+import TrustStats from "./TrustStats";
+import siteConfig from "../data/siteConfig";
+
+export default function Hero({
+  title = "Murali Krishna Hospital",
+  ctaText = "Book Appointment",
+  ctaHref = "/contact",
+}) {
+  return (
+    <section className="relative bg-primary overflow-hidden">
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10 min-h-[85vh] flex items-center py-20">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* LEFT COLUMN */}
+            <div className="lg:col-span-7 max-w-2xl mx-auto lg:mx-0">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 mb-8">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
+                  Trusted 24/7 Healthcare in Machilipatnam
+                </span>
+              </div>
+
+              {/* Main Heading */}
+              <h1 className="text-5xl md:text-7xl font-extrabold text-on-primary tracking-tight leading-[1.1]">
+                Caring For You <br />
+                <span className="text-accent">Every Hour, Every Day</span>
+              </h1>
+
+              {/* Description */}
+              <p className="mt-8 text-lg md:text-xl text-on-primary/80 leading-relaxed">
+                {siteConfig.companyName} is a trusted general hospital located on
+                Bala Bhavan Road, {siteConfig.defaultCity}. We provide quality
+                medical care, emergency support, and compassionate treatment for
+                patients of all age groups.
+              </p>
+
+              {/* ================= ACTION BUTTONS ================= */}
+              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md">
+                <Link
+                  href={ctaHref}
+                  className="
+                    w-full text-center
+                    px-10 py-5
+                    bg-accent text-on-accent
+                    text-xs font-bold uppercase tracking-widest
+                    transition-all duration-300
+                    hover:shadow-[0_0_20px_rgba(var(--color-accent),0.4)]
+                    hover:-translate-y-1
+                    active:translate-y-0
+                  "
+                >
+                  {ctaText}
+                </Link>
+
+                <Link
+                  href="/services"
+                  className="
+                    w-full text-center
+                    px-10 py-5
+                    border border-on-primary/20
+                    text-on-primary
+                    text-xs font-bold uppercase tracking-widest
+                    hover:bg-on-primary/10
+                    transition-colors
+                  "
+                >
+                  View Services
+                </Link>
+              </div>
+
+              {/* ================= TRUST STATS ================= */}
+              {/* <div className="mt-14 pt-10 border-t border-on-primary/10 flex justify-center lg:justify-start">
+                <TrustStats
+                  stats={[
+                    { value: "24/7", label: "Emergency Care" },
+                    { value: "All Ages", label: "Patient Services" },
+                    { value: "Trusted", label: "Medical Support" },
+                  ]}
+                />
+              </div> */}
+            </div>
+
+            {/* RIGHT COLUMN (DESKTOP ONLY – IMAGE + CONTENT) */}
+            <div className="lg:col-span-5 hidden lg:flex justify-center">
+              <div className="border border-accent/20 rounded-xl overflow-hidden max-w-sm bg-on-primary/5">
+                {/* IMAGE */}
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/hospital.jpg"
+                    alt="Murali Krishna Hospital in Machilipatnam"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-10">
+                  <p className="text-accent text-xs font-bold uppercase tracking-widest mb-3">
+                    Patient First Approach
+                  </p>
+
+                  <h3 className="text-on-primary text-2xl font-semibold leading-snug">
+                    Reliable Care <br /> & 24/7 Emergency Support
+                  </h3>
+
+                  <p className="mt-4 text-on-primary/70 text-sm leading-relaxed">
+                    Our experienced doctors and healthcare team are available
+                    round-the-clock to ensure prompt treatment and patient
+                    comfort.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* END RIGHT COLUMN */}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+src\components\LeadForm.js :
+--------------------------------------------------
+﻿"use client";
+
+import { useState } from "react";
+import siteConfig from "../data/siteConfig";
+
+/**
+ * HOSPITAL APPOINTMENT / INQUIRY FORM
+ * Clean medical styling, patient-focused messaging,
+ * and professional hospital communication.
+ */
+export default function LeadForm({ hidden = false }) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!name || !phone) {
+      setStatus({
+        ok: false,
+        msg: "Please enter your name and contact number.",
+      });
+      return;
+    }
+
+    const payload = {
+      name,
+      phone,
+      message,
+      source: typeof window !== "undefined" ? window.location.pathname : "/",
+      date: new Date().toISOString(),
+      hospital: siteConfig.companyName,
+      city: siteConfig.defaultCity,
+    };
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error();
+
+      setSubmitted(true);
+      setStatus(null);
+      setName("");
+      setPhone("");
+      setMessage("");
+    } catch {
+      setStatus({
+        ok: false,
+        msg: "Something went wrong. Please try again.",
+      });
+    }
+  }
+
+  /* SUCCESS STATE */
+  if (submitted) {
+    return (
+      <div
+        className={`${hidden ? "hidden" : ""} 
+          bg-secondary p-10 lg:p-16
+          border border-border shadow-2xl
+          flex flex-col items-center text-center justify-center min-h-[400px] transition-all duration-500`}
+      >
+        <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+          <span className="text-accent text-2xl font-bold">✓</span>
+        </div>
+
+        <h4 className="text-2xl font-bold text-text-primary mb-4 tracking-tight">
+          Appointment Request Received
+        </h4>
+
+        <p className="text-sm text-text-muted leading-relaxed max-w-xs">
+          Thank you. Our hospital team will contact you shortly to confirm your
+          appointment or assist you with your medical inquiry.
+        </p>
+      </div>
+    );
+  }
+
+  /* FORM */
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className={`${hidden ? "hidden" : ""} 
+        bg-secondary p-8 lg:p-12
+        border border-border shadow-2xl transition-all duration-300`}
+    >
+      {/* Header */}
+      <div className="mb-10">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-6 h-[1px] bg-accent" />
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent">
+            Patient Support
+          </span>
+        </div>
+
+        <h4 className="text-2xl text-text-primary font-extrabold tracking-tight">
+          Request an Appointment
+        </h4>
+      </div>
+
+      {/* Fields */}
+      <div className="space-y-6">
+        {/* Name */}
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted ml-1">
+            Full Name
+          </label>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="e.g. Rahul Sharma"
+            className="
+              w-full px-5 py-4 text-sm
+              bg-secondary
+              text-text-primary
+              border border-border
+              focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20
+              transition-all duration-200
+            "
+          />
+        </div>
+
+        {/* Phone */}
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted ml-1">
+            Contact Number
+          </label>
+          <input
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="Phone number"
+            className="
+              w-full px-5 py-4 text-sm
+              bg-secondary
+              text-text-primary
+              border border-border
+              focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20
+              transition-all duration-200
+            "
+          />
+        </div>
+
+        {/* Message */}
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted ml-1">
+            Message / Health Concern
+          </label>
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows={4}
+            placeholder="How can we assist you with your healthcare needs?"
+            className="
+              w-full px-5 py-4 text-sm resize-none
+              bg-secondary
+              text-text-primary
+              border border-border
+              focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20
+              transition-all duration-200
+            "
+          />
+        </div>
+      </div>
+
+      {/* Error */}
+      {status && !status.ok && (
+        <div className="mt-6 p-3 bg-accent/5 border-l-2 border-accent">
+          <p className="text-[11px] font-bold text-accent uppercase tracking-wider">
+            {status.msg}
+          </p>
+        </div>
+      )}
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="
+          mt-10 w-full py-5
+          bg-primary
+          text-on-primary
+          text-[11px] font-black uppercase tracking-[0.25em]
+          hover:bg-accent hover:text-on-accent
+          transition-all duration-300 ease-in-out
+          shadow-lg hover:shadow-accent/20
+        "
+      >
+        Submit Request
+      </button>
+
+      <p className="mt-6 text-[10px] text-center text-text-muted/60 uppercase tracking-widest font-medium">
+        Secure & Confidential Patient Communication
+      </p>
+    </form>
+  );
+}
+
+
+
+src\components\ProductCard.js :
+--------------------------------------------------
+import Image from "next/image";
+import Link from "next/link";
+import siteConfig from "../data/siteConfig";
+
+export default function ProductCard({ product }) {
+  return (
+    <article className="border border-border rounded-xl bg-secondary overflow-hidden hover:shadow-xl transition">
+      {/* Product Image */}
+      <div className="relative h-52 w-full bg-white">
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          className="object-contain p-6"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-lg font-bold text-text-primary">
+          {product.name}
+        </h3>
+
+        <p className="text-sm text-text-muted mt-2">
+          {product.short}
+        </p>
+
+        {/* Price */}
+        <p className="mt-4 text-xl font-extrabold text-primary">
+          ₹{product.price}
+        </p>
+
+        {/* Buttons */}
+        <div className="mt-6 flex gap-3">
+          <Link
+            href={`/products/${product.slug}`}
+            className="px-4 py-2 text-xs font-bold uppercase tracking-widest border border-border hover:border-accent transition"
+          >
+            View
+          </Link>
+
+          <a
+            href={`https://wa.me/${siteConfig.whatsapp.replace(
+              /\D/g,
+              ""
+            )}?text=I%20want%20to%20buy%20${product.name}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 text-xs font-bold uppercase tracking-widest bg-primary text-on-primary hover:bg-accent transition"
+          >
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+
+
+src\components\ServiceCard.js :
+--------------------------------------------------
+﻿import Link from "next/link";
+import Image from "next/image";
+
+/**
+ * Service card – reusable for hospital services
+ */
+export default function ServiceCard({ service }) {
+  return (
+    <article
+      className="
+        group
+        bg-secondary
+        border border-border
+        rounded-xl
+        overflow-hidden
+        transition-all duration-300
+        hover:shadow-xl hover:-translate-y-1
+        h-full flex flex-col
+      "
+    >
+      {/* Image */}
+      <div className="relative h-48 w-full overflow-hidden bg-secondary">
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 p-6 lg:p-7 flex flex-col">
+        <h3 className="text-xl font-bold text-text-primary mb-4">
+          {service.title}
+        </h3>
+
+        <p className="text-base text-text-muted leading-relaxed mb-6 flex-1">
+          {service.short}
+        </p>
+
+        <div className="pt-4 border-t border-border/50">
+          <Link
+            href={`/services/${service.slug}`}
+            className="
+              inline-flex items-center gap-2
+              text-sm font-semibold uppercase tracking-[0.15em]
+              text-accent
+              group/link
+              transition-all duration-200
+              hover:gap-3
+            "
+            aria-label={`Learn more about ${service.title}`}
+          >
+            <span className="border-b border-transparent group-hover/link:border-accent transition-all duration-200">
+              View Details
+            </span>
+            <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+              →
+            </span>
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+
+
+src\components\TrustStats.js :
+--------------------------------------------------
+export default function TrustStats({
+  stats = [
+    { value: "24/7", label: "Emergency Care" },
+    { value: "Experienced", label: "Medical Team" },
+    { value: "Trusted", label: "Patient Support" },
+  ],
+}) {
+  return (
+    <div className="flex gap-10 text-white/90">
+      {stats.map((stat, index) => (
+        <div key={index}>
+          <div className="text-2xl font-bold">{stat.value}</div>
+          <div className="text-xs uppercase tracking-widest text-gray-300">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+
+src\components\VideoEmbed.js :
+--------------------------------------------------
+﻿/**
+ * VideoEmbed
+ * Cinematic YouTube embed using semantic design tokens only
+ */
+export default function VideoEmbed({ id, title }) {
+  const src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&iv_load_policy=3`;
+
+  return (
+    <div className="group relative w-full">
+      {/* Decorative Accent */}
+      <div
+        className="
+          absolute -top-3 -right-3
+          w-12 h-12
+          border-t-2 border-r-2
+          border-accent/30
+          rounded-tr-lg
+          transition-all duration-500
+          group-hover:-top-2 group-hover:-right-2
+        "
+        aria-hidden="true"
+      />
+
+      {/* Video Container */}
+      <div
+        className="
+          relative pb-[56.25%] h-0 overflow-hidden rounded-xl
+          bg-primary
+          shadow-premium
+          transition-transform duration-500 ease-out
+          group-hover:scale-[1.01]
+        "
+      >
+        <iframe
+          title={title || "Cinematic Video"}
+          src={src}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full z-10"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          tabIndex={0}
+        />
+
+        {/* Cinematic Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center bg-primary/10 pointer-events-none" aria-hidden="true">
+          <div
+            className="
+              w-16 h-16 rounded-full
+              border border-on-primary/20
+              flex items-center justify-center
+              backdrop-blur-sm
+              transition-transform duration-500
+              group-hover:scale-110
+            "
+          >
+            <div
+              className="
+                w-0 h-0 ml-1
+                border-t-[10px] border-t-transparent
+                border-l-[16px] border-l-on-primary
+                border-b-[10px] border-b-transparent
+              "
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Title */}
+      {title && (
+        <div className="mt-4 flex items-center justify-between">
+          <h4 className="text-lg text-text-primary italic tracking-tight">
+            {title}
+          </h4>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+src\components\WhatsAppButton.js :
+--------------------------------------------------
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import siteConfig from "@/data/siteConfig";
+
+export default function WhatsAppButton() {
+  const [open, setOpen] = useState(false);
+  const wrapperRef = useRef(null);
+
+  // Sanitize numbers for links (remove anything except digits)
+  const whatsappNumber = (siteConfig?.whatsapp || "").replace(/\D/g, "");
+  const phoneNumber = (siteConfig?.phone || "").replace(/\D/g, "");
+
+  // Close on outside click
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div ref={wrapperRef} className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+
+      {/* Floating Options Menu */}
+      <div
+        className={`flex flex-col items-end gap-4 mb-4 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          open 
+            ? "opacity-100 translate-y-0 pointer-events-auto" 
+            : "opacity-0 translate-y-8 pointer-events-none"
+        }`}
+      >
+        {/* WhatsApp Link */}
+        <div className={`flex items-center gap-3 transition-all duration-500 delay-[50ms] ${open ? "translate-x-0" : "translate-x-4"}`}>
+          <span className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+            WhatsApp
+          </span>
+          <a
+            href={whatsappNumber ? `https://wa.me/${whatsappNumber}` : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#25D366] text-white shadow-lg hover:scale-110 active:scale-95 transition-all"
+            aria-label="Start a WhatsApp chat"
+            tabIndex={whatsappNumber ? 0 : -1}
+            aria-disabled={whatsappNumber ? undefined : "true"}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </div>
+
+        {/* Call Link */}
+        <div className={`flex items-center gap-3 transition-all duration-500 delay-[100ms] ${open ? "translate-x-0" : "translate-x-4"}`}>
+          <span className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-gray-100 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+            Call Us
+          </span>
+          <a
+            href={phoneNumber ? `tel:${phoneNumber}` : undefined}
+            className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#007AFF] text-white shadow-lg hover:scale-110 active:scale-95 transition-all"
+            aria-label="Call business phone"
+            tabIndex={phoneNumber ? 0 : -1}
+            aria-disabled={phoneNumber ? undefined : "true"}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.81 12.81 0 0 0 .63 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.63A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      {/* Main Toggle Button */}
+      <button
+        onClick={() => setOpen(!open)}
+        className={`relative w-14 h-14 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-300 active:scale-90 z-10 ${
+          open ? "bg-gray-900 rotate-90" : "bg-[#25D366] hover:bg-[#20ba5a]"
+        }`}
+        aria-label={open ? "Close contact options" : "Open contact options"}
+        aria-pressed={open}
+        tabIndex={0}
+        type="button"
+      >
+        {/* Simple Pulse Effect when closed */}
+        {!open && (
+           <span className="absolute inset-0 rounded-2xl bg-[#25D366] animate-ping opacity-20"></span>
+        )}
+
+        {open ? (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        ) : (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        )}
+      </button>
+    </div>
+  );
+}
+
+
+src\lib\readme_notes.md :
+--------------------------------------------------
+﻿# Notes for lib/readme_notes.md
+# Notes & Next Steps
+
+- Replace siteConfig.siteUrl with the real production domain before deploying.
+- Replace /public/logo.svg and placeholder images with client assets.
+- For better SEO, convert local blog posts to Markdown (.md) files and parse them (remark or next-mdx).
+- Integrate a real lead ingestion endpoint (Zapier/Make/CRM webhook) or SMTP.
+- Replace Google Maps embed src with exact place embed.
+
+
+src\lib\seo.js :
+--------------------------------------------------
+/**
+ * SEO helpers used across pages to build metadata and JSON-LD.
+ * Keep it simple: build title, description, open graph and canonical.
+ */
+
+import siteConfig from "../data/siteConfig";
+
+export function buildMeta({ title, description, keywords = [], path = "/", image }) {
+  const fullTitle = title ? `${title} | ${siteConfig.companyName}` : siteConfig.seo.defaultTitle;
+  const url = new URL(path, siteConfig.siteUrl).toString();
+
+  return {
+    title: fullTitle,
+    description: description || siteConfig.description,
+    keywords: Array.from(new Set([...(keywords || []), ...siteConfig.seo.keywords])).join(", "),
+    openGraph: {
+      title: fullTitle,
+      description: description || siteConfig.description,
+      url,
+      images: image ? [{ url: new URL(image, siteConfig.siteUrl).toString() }] : [],
+    },
+    canonical: url,
+  };
+}
+
+/** Basic JSON-LD for Organization + Website. Additional schema (FAQ, Blog) can be appended in pages. */
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.companyName,
+    url: siteConfig.siteUrl,
+    logo: new URL(siteConfig.logo, siteConfig.siteUrl).toString(),
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: siteConfig.phone,
+        contactType: "customer service",
+        areaServed: "IN",
+      },
+    ],
+  };
+}
+
+
+src\sections\AuthoritySection.js :
+--------------------------------------------------
+import Image from "next/image";
+import Link from "next/link";
+import siteConfig from "../data/siteConfig";
+import { Check } from "lucide-react";
+
+/**
+ * HOSPITAL AUTHORITY SECTION
+ * Highlights medical leadership, patient care, and trust.
+ * Fully removed construction/founder traces.
+ */
+export default function AuthoritySection() {
+  const points = [
+    {
+      title: "24/7 Emergency Support",
+      subtitle: "Round-the-clock care for urgent medical needs",
+    },
+    {
+      title: "Experienced Medical Team",
+      subtitle: "Skilled doctors, nurses, and healthcare professionals",
+    },
+    {
+      title: "Patient-Centered Care",
+      subtitle: "Compassionate treatment with safety and comfort",
+    },
+  ];
+
+  return (
+    <section className="bg-secondary py-10 lg:py-10 border-y border-border">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* HEADER */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-5">
+          <div className="lg:col-span-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-8 h-px bg-accent" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-accent">
+                Our Commitment
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              Trusted Healthcare <br className="hidden md:block" />
+              Built on Compassion.
+            </h2>
+          </div>
+
+          <div className="lg:col-span-4 lg:pt-14">
+            <p className="text-sm text-text-muted leading-relaxed border-l-2 border-border pl-2">
+              {siteConfig.companyName} is dedicated to providing ethical medical
+              care, modern treatment services, and a patient-first approach for
+              families in Machilipatnam and nearby communities.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* IMAGE */}
+          <div className="lg:col-span-5 relative">
+            {/* Decorative frame */}
+            <div className="absolute -inset-4 border border-border translate-x-2 translate-y-2 -z-10" />
+
+            <div
+              className="
+                relative
+                w-full
+                h-[520px] md:h-[640px]
+                overflow-hidden
+                rounded-xl
+                bg-black
+                shadow-2xl
+              "
+            >
+              <Image
+                src="/hospital.jpg"
+                alt="Murali Krishna Hospital"
+                fill
+                priority
+                className="
+                  object-cover
+                  object-center
+                  scale-[1.05]
+                "
+              />
+
+              {/* Soft overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+
+              {/* Mobile badge */}
+              <div className="lg:hidden absolute bottom-0 left-0 right-0 p-6 bg-secondary/95 backdrop-blur border-t border-border">
+                <p className="text-xs font-bold uppercase tracking-widest text-accent mb-1">
+                  General Hospital
+                </p>
+                <p className="text-xl font-bold text-text-primary">
+                  Open 24 Hours
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CONTENT */}
+          <div className="lg:col-span-7">
+            <div className="hidden lg:block mb-10">
+              <span className="text-[11px] font-black uppercase tracking-[0.3em] text-accent block mb-3">
+                Murali Krishna Hospital
+              </span>
+              <h3 className="text-4xl lg:text-6xl font-extrabold tracking-tight">
+                Quality Care for Every Patient
+              </h3>
+            </div>
+
+            <p className="text-lg text-text-primary/80 leading-relaxed mb-12 max-w-2xl">
+              Located on Bala Bhavan Road, Machilipatnam, Murali Krishna Hospital
+              provides reliable healthcare services including general medicine,
+              diagnostics, emergency care, and inpatient support — available
+              24/7 for the community.
+            </p>
+
+            {/* POINTS */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-8 mb-16">
+              {points.map((item, i) => (
+                <div key={i}>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Check size={16} className="text-accent" strokeWidth={3} />
+                    <p className="text-[13px] font-black uppercase tracking-wider">
+                      {item.title}
+                    </p>
+                  </div>
+                  <p className="text-xs text-text-muted pl-7">
+                    {item.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <Link
+              href="/services"
+              className="group inline-flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.25em]"
+            >
+              <span>View Hospital Services</span>
+              <span className="w-8 h-px bg-accent transition-all duration-300 group-hover:w-16" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+src\sections\HeroSection.js :
+--------------------------------------------------
+import Hero from "../components/Hero";
+import siteConfig from "../data/siteConfig";
+
+export default function HeroSection() {
+  return (
+    <Hero
+      title={siteConfig.companyName}
+      ctaText={siteConfig.cta.primary}
+      ctaHref="/contact"
+    />
+  );
+}
+
+
+
+src\sections\LeadSection.js :
+--------------------------------------------------
+import LeadForm from "../components/LeadForm";
+import siteConfig from "../data/siteConfig";
+
+/**
+ * HOSPITAL APPOINTMENT SECTION
+ * Patient-focused layout pairing supportive content with the Appointment Form.
+ */
+export default function LeadSection() {
+  return (
+    <section className="relative py-10 lg:py-10 overflow-hidden bg-secondary border-t border-border">
+      {/* Background Accents */}
+      <div className="absolute inset-0 pointer-events-none opacity-50">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-24 hidden lg:block" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+          {/* LEFT: SUPPORTIVE CONTENT */}
+          <div className="lg:w-1/2 flex flex-col items-start">
+            {/* Badge */}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-10 h-[1px] bg-accent" />
+              <span className="text-accent text-[11px] font-black uppercase tracking-[0.4em]">
+                Patient Support
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text-primary leading-[1.1] tracking-tighter mb-8">
+              Your Health Matters <br />
+              <span className="text-text-muted/60">We are here to help.</span>
+            </h2>
+
+            {/* Description */}
+            <div className="space-y-6 max-w-lg">
+              <p className="text-text-primary/80 text-lg leading-relaxed font-medium">
+                Connect with {siteConfig.companyName} to request an appointment,
+                ask about our medical services, or receive support from our
+                healthcare team.
+              </p>
+
+              <p className="text-text-muted text-base leading-relaxed border-l-2 border-border pl-6">
+                Located on Bala Bhavan Road in{" "}
+                <span className="text-text-primary font-semibold">
+                  {siteConfig.defaultCity}
+                </span>
+                , we provide trusted care including general medicine, emergency
+                services, diagnostics, and inpatient support — available 24/7.
+              </p>
+            </div>
+
+            {/* Emergency Note */}
+            <div className="mt-12 pt-10 border-t border-border w-full max-w-sm">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-2">
+                Need immediate assistance?
+              </p>
+              <p className="text-text-primary font-bold text-lg">
+                Emergency services are available 24/7.
+              </p>
+            </div>
+          </div>
+
+          {/* RIGHT: FORM */}
+          <div className="lg:w-1/2 w-full max-w-xl group">
+            <div className="relative">
+              {/* Decorative Element */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-accent/20 transition-all duration-700 group-hover:translate-x-2 group-hover:-translate-y-2 pointer-events-none" />
+
+              <LeadForm />
+
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-accent/20 transition-all duration-700 group-hover:-translate-x-2 group-hover:translate-y-2 pointer-events-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+src\sections\ServicesSection.js :
+--------------------------------------------------
+import ServiceCard from "../components/ServiceCard";
+import services from "../data/services";
+
+export default function ServicesSection() {
+  return (
+    <section className="bg-secondary py-10 lg:py-10 border-t border-border">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* HEADER */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-10">
+          <div className="lg:col-span-7 max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-12 h-px bg-accent" />
+              <span className="text-accent text-[11px] font-black uppercase tracking-[0.35em]">
+                Our Medical Services
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-extrabold text-text-primary leading-tight tracking-tight">
+              Quality Healthcare <br className="hidden md:block" />
+              Services
+            </h2>
+
+            <p className="mt-6 text-text-muted max-w-xl leading-relaxed">
+              Murali Krishna Hospital provides a wide range of medical services
+              including general medicine, emergency care, diagnostics, inpatient
+              and outpatient support, and preventive healthcare — available 24/7
+              for patients of all age groups.
+            </p>
+          </div>
+
+          {/* RIGHT SIDE – SUPPORTING CONTEXT */}
+          <div className="lg:col-span-5 flex items-end">
+            <p className="text-text-muted text-sm leading-relaxed max-w-md">
+              Our dedicated doctors and healthcare professionals focus on
+              patient comfort, clear communication, and effective treatment
+              outcomes to ensure reliable care for the community.
+            </p>
+          </div>
+        </div>
+
+        {/* SERVICES GRID */}
+        <div
+          className="
+            grid grid-cols-1 
+            sm:grid-cols-2 
+            lg:grid-cols-3 
+            gap-x-14 
+            gap-y-5
+          "
+        >
+          {services.map((service) => (
+            <article
+              key={service.slug}
+              className="
+                relative
+                border-t border-border
+                pt-10
+              "
+            >
+              <ServiceCard service={service} />
+
+              {/* Accent line */}
+              <span className="absolute top-0 left-0 h-px w-14 bg-accent" />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+src\sections\VideosSection.js :
+--------------------------------------------------
+import VideoEmbed from "../components/VideoEmbed";
+import videos from "../data/videos";
+import siteConfig from "../data/siteConfig";
+
+export default function VideosSection() {
+  return (
+    <section className="py-[60px] bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-14">
+          <span className="text-luxury-gold text-[11px] uppercase tracking-[0.35em] block mb-4">
+            Health Updates
+          </span>
+
+          <h2 className="text-3xl md:text-4xl text-luxury-charcoal leading-tight">
+            Hospital Videos & Medical Awareness
+          </h2>
+
+          <p className="mt-4 text-gray-600 text-sm max-w-xl">
+            Watch healthcare awareness videos, doctor guidance, and hospital
+            service information from {siteConfig.companyName} in{" "}
+            {siteConfig.defaultCity}. These videos help patients and families
+            understand our medical services, emergency care, and treatment
+            approach.
+          </p>
+        </div>
+
+        {/* Videos Grid */}
+        {videos.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {videos.slice(0, 4).map((video) => (
+              <VideoEmbed key={video.id} id={video.id} title={video.title} />
+            ))}
+          </div>
+        ) : (
+          <div className="max-w-xl text-gray-600">
+            <p>
+              Health awareness videos, doctor messages, and hospital updates from{" "}
+              {siteConfig.companyName} will be added soon.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+

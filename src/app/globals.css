@@ -1,26 +1,332 @@
 @import "tailwindcss";
 
+/* =====================================================
+   MEDICAL DESIGN TOKENS – HOSPITAL COLOR SYSTEM
+===================================================== */
+
+@layer base {
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ---------------------------------
+     HOSPITAL BRAND COLORS
+     Clean, Trustworthy Medical Palette
+  --------------------------------- */
+
+  /* Primary = Medical Trust Blue (Calm, Professional) */
+  --color-primary: #0ea5e9; /* Sky Blue - softer than navy */
+  
+  /* Secondary = Clean Hospital White */
+  --color-secondary: #ffffff;
+  
+  /* Accent = Healing Teal (Medical, Reassuring) */
+  --color-accent: #0d9488; /* Teal - healthcare association */
+  
+  /* Medical Green (Success, Health) */
+  --color-medical-green: #10b981;
+  
+  /* Soft Medical Lavender (Calming) */
+  --color-lavender: #8b5cf6;
+
+  /* ---------------------------------
+     TEXT COLORS - Medical Readability
+  --------------------------------- */
+
+  /* Deep Medical Blue for headings */
+  --color-text-primary: #1e293b;
+  
+  /* Professional Gray for body text */
+  --color-text-secondary: #475569;
+  
+  /* Light helper text */
+  --color-text-subtle: #94a3b8;
+  
+  /* White text on medical backgrounds */
+  --color-text-highlighted: #ffffff;
+
+  /* ---------------------------------
+     MEDICAL SURFACES & BORDERS
+  --------------------------------- */
+
+  /* Soft medical border */
+  --color-border: #e2e8f0;
+  
+  /* Hospital Background (Very light blue tint) */
+  --color-surface: #f0f9ff; /* Sky-50 equivalent */
+  
+  /* Light Medical Green Background */
+  --color-surface-green: #f0fdf4;
+  
+  /* Light Medical Blue Background */
+  --color-surface-blue: #eff6ff;
+
+  /* ---------------------------------
+     SEMANTIC ROLES - Medical Context
+  --------------------------------- */
+
+  --bg-page: var(--color-surface); /* Light medical background */
+  --bg-section: var(--color-secondary); /* White sections */
+  
+  --bg-alternate: var(--color-surface-blue); /* Alternate sections */
+
+  --bg-primary: var(--color-primary);
+  --bg-accent: var(--color-accent);
+  --bg-medical-green: var(--color-medical-green);
+
+  --text-default: var(--color-text-primary);
+  --text-muted: var(--color-text-secondary);
+  --text-subtle: var(--color-text-subtle);
+  --text-highlighted: var(--color-text-highlighted);
+
+  --text-on-primary: var(--color-text-highlighted);
+  --text-on-accent: var(--color-text-highlighted);
+
+  --border-default: var(--color-border);
+
+  /* ---------------------------------
+     MEDICAL EFFECTS
+  --------------------------------- */
+  --shadow-soft: 0 4px 20px rgba(14, 165, 233, 0.08);
+  --shadow-medium: 0 10px 40px rgba(14, 165, 233, 0.12);
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.05);
+  
+  /* Medical gradient for CTAs */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #0284c7 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, #0f766e 100%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* ---------------------------------
+     BASE MEDICAL STYLES
+  --------------------------------- */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-default);
+    overflow-x: hidden;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+
+  ::selection {
+    background-color: rgba(14, 165, 233, 0.2);
+    color: var(--text-default);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+    color: var(--text-default);
+    font-weight: 600;
+  }
+
+  /* ---------------------------------
+     MEDICAL CONTEXTUAL TEXT COLORS
+  --------------------------------- */
+
+  /* Primary medical backgrounds get white text */
+  .bg-primary {
+    color: var(--text-highlighted);
+    background: var(--gradient-primary);
+  }
+
+  .bg-primary h1,
+  .bg-primary h2,
+  .bg-primary h3,
+  .bg-primary h4,
+  .bg-primary p,
+  .bg-primary span,
+  .bg-primary li,
+  .bg-primary a {
+    color: var(--text-highlighted);
+  }
+
+  /* Accent medical backgrounds */
+  .bg-accent {
+    color: var(--text-on-accent);
+    background: var(--gradient-accent);
+  }
+
+  .bg-accent h1,
+  .bg-accent h2,
+  .bg-accent h3,
+  .bg-accent h4,
+  .bg-accent p,
+  .bg-accent span,
+  .bg-accent li,
+  .bg-accent a {
+    color: var(--text-on-accent);
+  }
+
+  /* Medical green backgrounds */
+  .bg-medical-green {
+    background-color: var(--color-medical-green);
+    color: var(--text-highlighted);
+  }
+
+  /* ---------------------------------
+     MEDICAL SCROLLBAR
+  --------------------------------- */
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =====================================================
+   TAILWIND TOKEN BRIDGE - Medical Theme
+===================================================== */
+@theme inline {
+  --color-background: var(--bg-page);
+  --color-foreground: var(--text-default);
+
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-section);
+  --color-accent: var(--bg-accent);
+  --color-medical-green: var(--bg-medical-green);
+
+  --color-surface-blue: var(--color-surface-blue);
+  --color-surface-green: var(--color-surface-green);
+
+  --color-text-primary: var(--text-default);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-highlighted: var(--text-highlighted);
+
+  --color-border: var(--border-default);
+
+  --shadow-premium: var(--shadow-medium);
+  --shadow-card: var(--shadow-card);
+  
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --radius-full: 9999px;
+}
+
+/* =====================================================
+   MEDICAL UTILITIES
+===================================================== */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Medical pulse for important elements */
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .text-shadow-subtle {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Medical gradients */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+}
+
+/* ---------------------------------
+   SCROLL HELPERS
+--------------------------------- */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-medical {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-surface);
+}
+
+.scrollbar-medical::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-medical::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-radius: 3px;
+}
+
+.scrollbar-medical::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+.scrollbar-medical::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ---------------------------------
+   MEDICAL PROSE INHERITANCE
+--------------------------------- */
+@layer base {
+  .prose,
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose p {
+    font-family: inherit;
+  }
+}
+
+/* ---------------------------------
+   MEDICAL FORM STYLING (Base)
+--------------------------------- */
+@layer base {
+  input, textarea, select {
+    @apply border border-[var(--color-border)] rounded-[var(--radius-button)] px-4 py-3 text-[var(--color-text-primary)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 focus:border-[var(--color-primary)] transition-all;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    @apply text-[var(--color-text-subtle)];
+  }
+  
+  label {
+    @apply block text-sm font-medium text-[var(--color-text-primary)] mb-2;
+  }
 }
