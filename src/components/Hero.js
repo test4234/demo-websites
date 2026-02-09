@@ -36,38 +36,32 @@ export default function Hero({
       {/* ================= CONTENT ================= */}
       <div className="relative z-10 min-h-[85vh] flex items-center py-10 md:py-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* LEFT CONTENT */}
-            <div className="lg:col-span-7 max-w-2xl mx-auto lg:mx-0">
-              {/* Emergency Badge */}
-              {/* <div
-                className="inline-flex items-center gap-3 px-5 py-2 rounded-full mb-8 border"
-                style={{
-                  backgroundColor: "rgba(14,165,233,0.08)",
-                  borderColor: "var(--border-default)",
-                  color: "var(--color-primary)",
-                }}
-              >
-                <span className="text-sm font-semibold">
-                  🏥 24/7 Emergency Services Available
-                </span>
-              </div> */}
+          {/* ✅ Now Full Center Content */}
+          <div className="flex justify-center">
+            <div className="max-w-3xl text-center">
+              {/* ✅ Logo Above Title */}
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="/logo.png"
+                  alt="Murali Krishna Hospitals Logo"
+                  width={90}
+                  height={90}
+                  priority
+                />
+              </div>
 
-              {/* Heading */}
-              <h1
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]"
-                style={{ color: "var(--text-default)" }}
-              >
-                Your Health is <br />
-                <span
-                  className="text-transparent bg-clip-text"
-                  style={{
-                    backgroundImage: "var(--gradient-primary)",
-                  }}
-                >
-                  Our Priority
-                </span>
-              </h1>
+              {/* ✅ Updated Heading */}
+<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
+  <span
+    className="text-transparent bg-clip-text"
+    style={{
+      backgroundImage: "var(--gradient-primary)",
+    }}
+  >
+    Murali Krishna Hospitals
+  </span>
+</h1>
+
 
               {/* Subheading */}
               <p
@@ -79,19 +73,18 @@ export default function Hero({
 
               {/* Description */}
               <p
-                className="mt-6 text-lg leading-relaxed max-w-3xl"
+                className="mt-6 text-lg leading-relaxed"
                 style={{ color: "var(--text-muted)" }}
               >
                 {siteConfig.companyName} provides comprehensive medical care with
                 experienced doctors, modern facilities, and compassionate
-                service. Located {siteConfig.defaultCity},
-                we offer quality treatment for all age groups with personalized
-                attention.
+                service. Located {siteConfig.defaultCity}, we offer quality
+                treatment for all age groups with personalized attention.
               </p>
 
               {/* Hospital Timings */}
               <div
-                className="mt-8 p-6 rounded-xl max-w-md shadow-sm border"
+                className="mt-8 p-6 rounded-xl max-w-md mx-auto shadow-sm border"
                 style={{
                   backgroundColor: "var(--bg-section)",
                   borderColor: "var(--border-default)",
@@ -150,7 +143,7 @@ export default function Hero({
               </div>
 
               {/* CTA BUTTONS */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 max-w-md">
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 {/* Primary Button */}
                 <Link
                   href={ctaHref}
@@ -189,54 +182,8 @@ export default function Hero({
                 </Link>
               </div>
             </div>
-
-            {/* RIGHT IMAGE COLUMN (Desktop Only) */}
-            <div className="hidden lg:block lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="aspect-[4/5] relative">
-                  <Image
-                    src="https://ik.imagekit.io/oj4o1nw9x/clinicimage3.jpg"
-                    alt="Murali Krishna Hospital - Modern Medical Facility"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                </div>
-
-                {/* Doctor Card */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div
-                    className="rounded-xl p-6 shadow-lg border"
-                    style={{
-                      backgroundColor: "rgba(255,255,255,0.92)",
-                      borderColor: "var(--border-default)",
-                    }}
-                  >
-                    <h3
-                      className="text-lg font-bold"
-                      style={{ color: "var(--text-default)" }}
-                    >
-                      Dr. K Murali Krishna
-                    </h3>
-                    <p
-                      className="text-sm"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      General Practitioner & Hospital Director
-                    </p>
-                    <p
-                      className="mt-2 text-sm font-medium"
-                      style={{ color: "var(--color-primary)" }}
-                    >
-                      20+ Years Medical Experience
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* END IMAGE */}
           </div>
+          {/* ✅ End Center Layout */}
         </div>
       </div>
 

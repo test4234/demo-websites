@@ -13,6 +13,9 @@ const siteConfig = {
   address:
     "Address: Dimmala centre, Lakshmana rao puram, Machilipatnam, Andhra Pradesh 521002",
   mapLink: "https://maps.app.goo.gl/C3QNqE77rVqN4QzU7",
+  mapEmbed:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d490449.9843152245!2d80.5730075!3d16.187479!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a49e7931bcd449d%3A0xb76e5bd502fa1819!2sMurali%20Krishna%20Hospital!5e0!3m2!1sen!2sin!4v1770618173757!5m2!1sen!2sin",
+
 
   phone: "+91 083744 87474", // Replace with hospital phone number
   whatsapp: "", // Optional (leave blank if not needed)

@@ -108,16 +108,17 @@ export default function Header() {
             })}
 
             {/* CTA */}
-            <Link
-              href="/contact"
-              className="ml-4 px-6 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition"
-              style={{
-                background: "var(--gradient-primary)",
-                color: "var(--text-highlighted)",
-              }}
-            >
-              Book Appointment
-            </Link>
+<a
+  href={`tel:${siteConfig.phone}`}
+  className="ml-4 px-6 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition"
+  style={{
+    background: "var(--gradient-primary)",
+    color: "var(--text-highlighted)",
+  }}
+>
+  Book Appointment
+</a>
+
           </nav>
 
           {/* ✅ MOBILE MENU BUTTON ALWAYS RIGHT */}
@@ -174,17 +175,18 @@ export default function Header() {
             })}
 
             {/* MOBILE CTA */}
-            <Link
-              href="/contact"
-              onClick={closeMenu}
-              className="mt-4 w-full text-center px-4 py-3 rounded-lg font-semibold shadow-md"
-              style={{
-                background: "var(--gradient-primary)",
-                color: "var(--text-highlighted)",
-              }}
-            >
-              Book Appointment
-            </Link>
+<a
+  href={`tel:${siteConfig.phone}`}
+  onClick={closeMenu}
+  className="mt-4 w-full text-center px-4 py-3 rounded-lg font-semibold shadow-md"
+  style={{
+    background: "var(--gradient-primary)",
+    color: "var(--text-highlighted)",
+  }}
+>
+  Book Appointment
+</a>
+
           </nav>
         </div>
       )}

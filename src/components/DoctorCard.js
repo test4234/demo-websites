@@ -127,18 +127,19 @@ export default function DoctorCard({ doctor }) {
 
         {/* ================= CTA BUTTON ================= */}
         <div className="mt-auto pt-6">
-          <Link
-            href={doctor.bookingLink || "/contact"}
-            className="
-              block w-full text-center
-              px-5 py-3 rounded-xl
-              font-semibold text-white
-              bg-primary hover:opacity-90
-              transition
-            "
-          >
-            Book Appointment →
-          </Link>
+<a
+  href={`tel:${doctor.phone}`}
+  className="
+    block w-full text-center
+    px-5 py-3 rounded-xl
+    font-semibold text-white
+    bg-primary hover:opacity-90
+    transition
+  "
+>
+  Call for Appointment →
+</a>
+
         </div>
       </div>
     </article>

@@ -103,20 +103,13 @@ export default function ServicesPage() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="px-8 py-4 rounded-xl bg-accent text-accent-foreground font-semibold text-center hover:opacity-90 transition"
-              >
-                Book Appointment
-              </Link>
+<a
+  href={`tel:${siteConfig.phone}`}
+  className="px-8 py-4 rounded-xl bg-accent text-accent-foreground font-semibold text-center hover:opacity-90 transition"
+>
+  Book Appointment
+</a>
 
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="px-8 py-4 rounded-xl border border-border bg-secondary text-text-primary font-semibold inline-flex items-center justify-center gap-2 hover:bg-card transition"
-              >
-                <Phone className="w-5 h-5 text-accent" />
-                Call Now
-              </a>
             </div>
           </div>
         </div>
