@@ -177,15 +177,24 @@ export default function Header() {
             {/* MOBILE CTA */}
 <a
   href={`tel:${siteConfig.phone}`}
-  onClick={closeMenu}
   className="mt-4 w-full text-center px-4 py-3 rounded-lg font-semibold shadow-md"
   style={{
     background: "var(--gradient-primary)",
     color: "var(--text-highlighted)",
   }}
+  onClick={(e) => {
+    e.preventDefault(); // stop instant navigation
+    closeMenu(); // close menu first
+
+    // ✅ wait 200ms then open dialer
+    setTimeout(() => {
+      window.location.href = `tel:${siteConfig.phone}`;
+    }, 200);
+  }}
 >
   Book Appointment
 </a>
+
 
           </nav>
         </div>
