@@ -145,22 +145,23 @@ export default function Hero({
               {/* CTA BUTTONS */}
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 {/* Primary Button */}
-                <Link
-                  href={ctaHref}
-                  className="
-                    px-8 py-4 rounded-xl
-                    font-semibold text-base
-                    flex items-center justify-center
-                    transition-all duration-300
-                    shadow-lg hover:shadow-xl
-                  "
-                  style={{
-                    background: "var(--gradient-primary)",
-                    color: "var(--text-highlighted)",
-                  }}
-                >
-                  {ctaText}
-                </Link>
+<a
+  href={`tel:${siteConfig.phone}`}
+  className="
+    px-8 py-4 rounded-xl
+    font-semibold text-base
+    flex items-center justify-center
+    transition-all duration-300
+    shadow-lg hover:shadow-xl
+  "
+  style={{
+    background: "var(--gradient-primary)",
+    color: "var(--text-highlighted)",
+  }}
+>
+  Call for Appointment
+</a>
+
 
                 {/* Secondary Button */}
                 <Link
