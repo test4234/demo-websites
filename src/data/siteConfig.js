@@ -74,7 +74,7 @@ const siteConfig = {
       "Murali Krishna Hospital – 24/7 Healthcare & Emergency Services",
     ogDescription:
       "Murali Krishna Hospital in Machilipatnam offers trusted medical services including general medicine, emergency care, diagnostics, inpatient and outpatient treatments with round-the-clock availability.",
-    ogImage: "https://demowebsite-psi.vercel.app/og-image.png",
+    ogImage: "",
 
     keywords: [
       "Murali Krishna Hospital",
