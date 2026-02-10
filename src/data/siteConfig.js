@@ -7,7 +7,7 @@ const siteConfig = {
   description:
     "Murali Krishna Hospital is a reliable general hospital located on Bala Bhavan Road, Machilipatnam. We provide quality medical care with compassion, safety, and round-the-clock emergency support for patients of all age groups.",
 
-siteUrl: "",
+siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
 
   defaultCity: "Machilipatnam",
 
