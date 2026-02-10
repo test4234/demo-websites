@@ -48,11 +48,6 @@ export default function LeadSection() {
                   text: "Minimal waiting time & fast response",
                 },
                 {
-                  icon: <AlertCircle className="w-5 h-5" />,
-                  title: "24/7 Emergency",
-                  text: "Immediate emergency support anytime",
-                },
-                {
                   icon: <Phone className="w-5 h-5" />,
                   title: "Easy Contact",
                   text: "WhatsApp booking available instantly",
@@ -82,23 +77,6 @@ export default function LeadSection() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Emergency CTA */}
-            <div className="mt-10 rounded-2xl border p-6 bg-red-50">
-              <h4 className="font-bold text-lg text-red-600">
-                Emergency Assistance
-              </h4>
-              <p className="mt-2 text-sm text-text-muted">
-                Call immediately for urgent medical help:
-              </p>
-
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="inline-flex mt-4 px-6 py-3 rounded-xl font-semibold bg-red-600 text-white hover:opacity-90 transition"
-              >
-                Emergency Call: {siteConfig.phone}
-              </a>
             </div>
           </div>
 

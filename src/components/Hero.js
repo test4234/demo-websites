@@ -44,8 +44,8 @@ export default function Hero({
                 <Image
                   src="/logo.png"
                   alt="Murali Krishna Hospitals Logo"
-                  width={90}
-                  height={90}
+                  width={150}
+                  height={150}
                   priority
                 />
               </div>

@@ -2,7 +2,10 @@
 
 import doctors from "../../data/doctors";
 import visitingDoctors from "../../data/visitingDoctors";
+
 import DoctorCard from "../../components/DoctorCard";
+import VisitingDoctorCard from "../../components/VisitingDoctorCard";
+
 import siteConfig from "../../data/siteConfig";
 
 import { buildMeta } from "../../lib/seo";
@@ -25,9 +28,6 @@ export async function generateMetadata() {
 
 /* ---------------- PAGE ---------------- */
 export default function DoctorsPage() {
-  // ✅ Combine all doctors into one list
-  const allDoctors = [...doctors, ...visitingDoctors];
-
   return (
     <div className="min-h-screen bg-secondary">
       {/* ================= HEADER (Old Design Restored) ================= */}
@@ -43,8 +43,7 @@ export default function DoctorsPage() {
 
           {/* Title */}
           <h1 className="text-4xl md:text-6xl font-extrabold text-text-primary mb-6">
-            Meet Our{" "}
-            <span className="text-accent">Doctors</span>
+            Meet Our <span className="text-accent">Doctors</span>
           </h1>
 
           {/* Subtitle */}
@@ -59,13 +58,25 @@ export default function DoctorsPage() {
         </div>
       </header>
 
-      {/* ================= DOCTORS GRID (Unified) ================= */}
+      {/* ================= MAIN DOCTORS ================= */}
       <section className="py-10 md:py-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {allDoctors.map((doc) => (
+            {doctors.map((doc) => (
               <DoctorCard key={doc.slug} doctor={doc} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= VISITING DOCTORS (Simple Cards) ================= */}
+      <section className="py-10 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            {visitingDoctors.map((doc) => (
+              <VisitingDoctorCard key={doc.slug} doctor={doc} />
             ))}
           </div>
         </div>

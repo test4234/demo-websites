@@ -4,9 +4,9 @@ const doctors = [
   {
     slug: "dr-murali-krishna",
     name: "Dr. K. Murali Krishna",
+
     specialty: "General Physician",
-    qualifications: "MBBS, MD (General Medicine)",
-    experience: "15+ Years Experience",
+    qualifications: "MD (Physician)",
 
     short:
       "Chief physician providing daily consultation, outpatient care, and emergency support.",
@@ -25,8 +25,6 @@ Specialized in preventive care, chronic disease management, and emergency suppor
     timings: ["10:00 AM – 1:00 PM", "6:00 PM – 9:00 PM"],
 
     consultationFee: 300,
-
-    expertise: ["General Consultation", "Diabetes Care", "BP Management"],
 
     bookingLink: "/contact",
   },

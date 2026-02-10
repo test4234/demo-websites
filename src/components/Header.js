@@ -68,20 +68,20 @@ export default function Header() {
         <div className="h-16 md:h-20 flex items-center">
 
           {/* ✅ LOGO ALWAYS LEFT */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <div className="relative h-14 w-36 md:h-16 md:w-44">
-                <Image
-                  src={siteConfig.logo}
-                  alt={siteConfig.companyName}
-                  fill
-                  priority
-                  className="object-contain object-left"
+<div className="flex-shrink-0">
+  <Link href="/" className="flex items-center">
+    <div className="relative h-20 w-52 md:h-24 md:w-64">
+      <Image
+        src={siteConfig.logo}
+        alt={siteConfig.companyName}
+        fill
+        priority
+        className="object-contain object-left"
+      />
+    </div>
+  </Link>
+</div>
 
-                />
-              </div>
-            </Link>
-          </div>
 
           {/* ✅ DESKTOP NAV ALWAYS RIGHT */}
           <nav className="hidden md:flex ml-auto items-center gap-2">

@@ -6,16 +6,28 @@ import Image from "next/image";
 import doctors from "../data/doctors";
 import visitingDoctors from "../data/visitingDoctors";
 
-import { ArrowRight, Calendar, Award, UserCheck } from "lucide-react";
+import { ArrowRight, Calendar, Award } from "lucide-react";
 
 export default function AuthoritySection() {
   const mainDoctor = doctors?.[0];
 
+  // ✅ Auto Tags Based on Qualification + Specialty
+  const generateTags = (doctor) => {
+    if (!doctor) return [];
+
+    const tags = [];
+
+    if (doctor.qualifications?.includes("MD")) tags.push("MD Doctor");
+    if (doctor.specialty?.includes("Physician")) tags.push("Physician");
+    if (doctor.availability) tags.push("Daily Consultation");
+
+    return tags;
+  };
+
+  const doctorTags = generateTags(mainDoctor);
+
   return (
-    <section
-      className="py-20"
-      style={{ backgroundColor: "var(--bg-page)" }}
-    >
+    <section className="py-20" style={{ backgroundColor: "var(--bg-page)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* ================= HEADER ================= */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -53,7 +65,7 @@ export default function AuthoritySection() {
               borderColor: "var(--border-default)",
             }}
           >
-            {/* ✅ FULL IMAGE LEFT SIDE */}
+            {/* ✅ IMAGE LEFT */}
             <div className="relative w-full h-[420px] md:h-full">
               <Image
                 src={mainDoctor.image}
@@ -64,7 +76,7 @@ export default function AuthoritySection() {
               />
             </div>
 
-            {/* Doctor Content Right Side */}
+            {/* Content Right */}
             <div className="p-8 md:p-12">
               {/* Name */}
               <h3
@@ -81,16 +93,6 @@ export default function AuthoritySection() {
               >
                 {mainDoctor.specialty}
               </p>
-
-              {/* Experience */}
-              {mainDoctor.experience && (
-                <p
-                  className="mt-2 text-sm font-medium"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {mainDoctor.experience}
-                </p>
-              )}
 
               {/* Qualifications */}
               {mainDoctor.qualifications && (
@@ -109,37 +111,6 @@ export default function AuthoritySection() {
               >
                 {mainDoctor.short}
               </p>
-
-              {/* Expertise */}
-              {mainDoctor.expertise && (
-                <div className="mt-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <UserCheck className="w-4 h-4 text-accent" />
-                    <p
-                      className="text-sm font-semibold"
-                      style={{ color: "var(--text-default)" }}
-                    >
-                      Areas of Expertise
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {mainDoctor.expertise.slice(0, 3).map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-4 py-1.5 rounded-full text-sm border"
-                        style={{
-                          borderColor: "var(--border-default)",
-                          backgroundColor: "rgba(14,165,233,0.08)",
-                          color: "var(--color-primary)",
-                        }}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {/* Timings */}
               {mainDoctor.timings && (
@@ -169,7 +140,7 @@ export default function AuthoritySection() {
                 </div>
               )}
 
-              {/* Visiting Doctors Preview */}
+              {/* ================= VISITING DOCTORS PREVIEW ================= */}
               <div className="mt-10">
                 <div className="flex items-center gap-2 mb-3">
                   <Calendar className="w-4 h-4 text-accent" />
@@ -181,32 +152,25 @@ export default function AuthoritySection() {
                   </p>
                 </div>
 
-                {/* Avatar Circles */}
-{/* Avatar Circles */}
-<div className="flex items-center -space-x-3">
-  {visitingDoctors.slice(0, 3).map((doc, i) => (
-    <div
-      key={i}
-      title={doc.name}
-      className="
-        relative w-12 h-12
-        rounded-full overflow-hidden
-        border-2 bg-white
-        flex-shrink-0
-      "
-      style={{ borderColor: "var(--border-default)" }}
-    >
-      <Image
-        src={doc.image}
-        alt={doc.name}
-        fill
-        className="object-cover"
-        sizes="48px"
-      />
-    </div>
-  ))}
-</div>
-
+                {/* No Images */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  {visitingDoctors.slice(0, 3).map((doc, i) => (
+                    <div
+                      key={i}
+                      className="
+                        px-4 py-2 rounded-full
+                        text-sm font-medium
+                        border bg-white
+                      "
+                      style={{
+                        borderColor: "var(--border-default)",
+                        color: "var(--text-muted)",
+                      }}
+                    >
+                      {doc.name}
+                    </div>
+                  ))}
+                </div>
 
                 {/* CTA */}
                 <div className="mt-6">

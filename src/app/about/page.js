@@ -102,7 +102,7 @@ export default function About() {
 
           {/* Subtitle */}
           <p className="mt-5 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Located on Bala Bhavan Road, Machilipatnam, we provide trusted medical
+            Located at Machilipatnam, we provide trusted medical
             care with compassion, safety, and reliability for all age groups.
           </p>
         </div>
@@ -221,16 +221,6 @@ export default function About() {
             <p className="text-gray-600 mb-6">{siteConfig.address}</p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              {/* Emergency Call */}
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="px-6 py-3 rounded-xl font-semibold text-white text-center"
-                style={{
-                  background: "rgba(239,68,68,0.95)",
-                }}
-              >
-                Call Emergency: {siteConfig.phone}
-              </a>
 
               {/* Google Maps */}
               {siteConfig.mapLink && (

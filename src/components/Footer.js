@@ -17,7 +17,8 @@ export default function Footer() {
           
           {/* BRAND & ABOUT */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
+            <div className="flex justify-center md:justify-start items-center gap-3">
+
               <div className="relative">
                 <div className="absolute -inset-4 bg-sky-500/10 rounded-full blur-lg"></div>
                 <Image
@@ -158,19 +159,6 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-            </div>
-
-            {/* EMERGENCY CTA */}
-            <div className="mt-8 bg-gradient-to-r from-red-500/10 to-red-600/10 rounded-xl p-4 border border-red-500/20">
-              <div className="text-sm font-medium text-white mb-2">
-                Emergency?
-              </div>
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="inline-flex items-center justify-center w-full px-4 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
-              >
-                Emergency Call Now
-              </a>
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[var(--color-bg)]">
       {/* ================= HERO ================= */}
-      <header className="py-14 md:py-20 border-b border-gray-100">
+      <header className="py-10 md:py-10 border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-medium text-gray-700 mb-6">
@@ -63,32 +63,6 @@ export default function Contact() {
             for appointments, emergency services, and trusted healthcare support
             across {siteConfig.defaultCity}.
           </p>
-
-          {/* Emergency Banner */}
-          <div className="mt-10 bg-white border border-red-200 rounded-2xl p-6 shadow-sm max-w-3xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center">
-                  <AlertCircle className="w-6 h-6 text-red-600" />
-                </div>
-                <div className="text-left">
-                  <h3 className="font-bold text-gray-900">
-                    Emergency Assistance
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Available 24/7 for urgent care
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="px-6 py-3 rounded-xl font-semibold text-white bg-red-600 hover:bg-red-700 transition"
-              >
-                Call Now: {siteConfig.phone}
-              </a>
-            </div>
-          </div>
         </div>
       </header>
 
@@ -138,7 +112,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">
-                        Emergency Helpline
+                        Helpline
                       </h4>
                       <p className="text-sm text-gray-500">Available 24/7</p>
                     </div>

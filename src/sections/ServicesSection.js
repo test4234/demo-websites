@@ -73,35 +73,6 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* ================= EMERGENCY CTA (Compact) ================= */}
-        <div className="mt-14 text-center">
-          <div
-            className="inline-flex flex-col sm:flex-row items-center gap-4 px-6 py-5 rounded-2xl border shadow-sm"
-            style={{
-              backgroundColor: "var(--bg-section)",
-              borderColor: "var(--border-default)",
-            }}
-          >
-            <p
-              className="text-sm md:text-base font-medium"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Need urgent medical attention? Emergency services are available
-              anytime.
-            </p>
-
-            <a
-              href={`tel:${siteConfig?.phone || ""}`}
-              className="px-6 py-3 rounded-xl font-semibold transition shadow-md hover:shadow-lg"
-              style={{
-                background: "var(--gradient-primary)",
-                color: "var(--text-highlighted)",
-              }}
-            >
-              Call Emergency Now
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

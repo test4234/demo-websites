@@ -1,4 +1,5 @@
 // src/app/layout.js
+
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,10 +7,27 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import siteConfig from "../data/siteConfig";
 import { Poppins } from "next/font/google";
 
+/* -----------------------------------------
+   ✅ Detect Preview / Vercel Deployment
+------------------------------------------ */
+const isVercelPreview =
+  siteConfig.siteUrl?.includes("vercel.app") ||
+  process.env.VERCEL_ENV !== "production";
+
+/* -----------------------------------------
+   METADATA
+------------------------------------------ */
 export const metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+  // ✅ Prevent Invalid URL crash
+  metadataBase: new URL(siteConfig.siteUrl || "http://localhost:3000"),
+
   title: siteConfig.seo.defaultTitle,
   description: siteConfig.description,
+
+  /* ✅ Block Google Indexing on Preview Sites */
+  robots: isVercelPreview
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
 
   openGraph: {
     title: siteConfig.seo.ogTitle,
@@ -40,23 +58,31 @@ export const metadata = {
   },
 };
 
+/* -----------------------------------------
+   VIEWPORT
+------------------------------------------ */
 export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
 
+/* -----------------------------------------
+   FONT
+------------------------------------------ */
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
+/* -----------------------------------------
+   ROOT LAYOUT
+------------------------------------------ */
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} bg-secondary antialiased`}>
-        
-        {/* ✅ Accessibility Skip Link */}
+        {/* Skip Link */}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent text-accent-foreground px-4 py-2 rounded-lg z-50"
@@ -66,16 +92,12 @@ export default function RootLayout({ children }) {
 
         <Header />
 
-        <main
-          id="main-content"
-          className="relative min-h-screen bg-secondary"
-        >
+        <main id="main-content" className="relative min-h-screen bg-secondary">
           {children}
         </main>
 
         <Footer />
 
-        {/* Floating WhatsApp Support */}
         <WhatsAppButton />
       </body>
     </html>
